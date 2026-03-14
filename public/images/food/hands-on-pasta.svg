@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1400" fill="none">
+  <rect width="900" height="1400" fill="#141410"/>
+  <ellipse cx="450" cy="820" rx="280" ry="180" fill="#F2D8AE"/>
+  <rect x="170" y="350" width="180" height="480" rx="90" fill="#D6A585"/>
+  <rect x="550" y="350" width="180" height="480" rx="90" fill="#D6A585"/>
+  <path d="M270 780C350 860 550 860 630 780" stroke="#D4A853" stroke-width="18" stroke-linecap="round"/>
+  <text x="80" y="1260" fill="#F5EDD8" font-size="58" font-family="Georgia, serif">Hands on Pasta</text>
+</svg>

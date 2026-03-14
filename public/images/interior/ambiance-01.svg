@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1200" fill="none">
+  <rect width="1800" height="1200" fill="#141410"/>
+  <circle cx="350" cy="170" r="18" fill="#D4A853"/>
+  <circle cx="520" cy="220" r="18" fill="#D4A853"/>
+  <circle cx="690" cy="180" r="18" fill="#D4A853"/>
+  <circle cx="860" cy="220" r="18" fill="#D4A853"/>
+  <circle cx="1030" cy="170" r="18" fill="#D4A853"/>
+  <rect x="200" y="520" width="520" height="120" rx="14" fill="#2A2118"/>
+  <rect x="830" y="520" width="540" height="120" rx="14" fill="#2A2118"/>
+  <rect x="260" y="430" width="80" height="90" rx="10" fill="#C8452A"/>
+  <rect x="900" y="430" width="80" height="90" rx="10" fill="#C8452A"/>
+  <path d="M1440 280C1510 400 1570 490 1570 620C1570 730 1500 820 1400 820C1300 820 1230 730 1230 620C1230 540 1260 470 1440 280Z" fill="#C8452A"/>
+  <path d="M1440 400C1480 470 1510 520 1510 600C1510 660 1470 720 1400 720C1330 720 1290 660 1290 600C1290 550 1310 500 1440 400Z" fill="#3D5A3E"/>
+  <text x="120" y="1080" fill="#F5EDD8" font-size="78" font-family="Georgia, serif">Evening Ambiance</text>
+</svg>

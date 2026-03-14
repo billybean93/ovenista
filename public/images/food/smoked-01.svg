@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" fill="none">
+  <rect width="900" height="1200" fill="#17150F"/>
+  <rect x="180" y="360" width="540" height="420" rx="90" fill="#6B3B2B"/>
+  <rect x="220" y="420" width="460" height="300" rx="64" fill="#8A5038"/>
+  <path d="M330 320C330 250 390 220 390 170" stroke="#D4A853" stroke-width="10" stroke-linecap="round"/>
+  <path d="M450 300C450 230 510 200 510 150" stroke="#D4A853" stroke-width="10" stroke-linecap="round"/>
+  <path d="M570 320C570 250 630 220 630 170" stroke="#D4A853" stroke-width="10" stroke-linecap="round"/>
+  <text x="80" y="1080" fill="#F5EDD8" font-size="58" font-family="Georgia, serif">Long-Smoked</text>
+</svg>

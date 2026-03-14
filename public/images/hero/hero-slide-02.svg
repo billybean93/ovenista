@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" fill="none">
+  <rect width="1200" height="1600" fill="#141410"/>
+  <circle cx="600" cy="780" r="390" fill="#CDA56A"/>
+  <circle cx="600" cy="780" r="330" fill="#F2D59A"/>
+  <path d="M280 570C410 460 790 460 920 570" stroke="#C8452A" stroke-width="46" stroke-linecap="round"/>
+  <path d="M240 850C340 1080 860 1080 960 850" stroke="#C8452A" stroke-width="52" stroke-linecap="round"/>
+  <circle cx="500" cy="700" r="26" fill="#3D5A3E"/>
+  <circle cx="700" cy="670" r="24" fill="#3D5A3E"/>
+  <circle cx="650" cy="850" r="28" fill="#3D5A3E"/>
+  <circle cx="470" cy="900" r="22" fill="#C8452A"/>
+  <text x="120" y="1450" fill="#F5EDD8" font-size="72" font-family="Georgia, serif">Hero Food Shot</text>
+</svg>

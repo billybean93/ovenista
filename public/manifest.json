@@ -1,0 +1,16 @@
+{
+  "name": "Ovenista",
+  "short_name": "Ovenista",
+  "description": "Authentic European dining in Ho Chi Minh City.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#141410",
+  "theme_color": "#141410",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

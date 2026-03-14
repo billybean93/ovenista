@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #141410;
+  --color-bg-surface: #1c1a14;
+  --color-bg-elevated: #252018;
+  --color-ember: #c8452a;
+  --color-gold: #d4a853;
+  --color-gold-muted: #9a7a3a;
+  --color-forest: #3d5a3e;
+  --color-cream: #f5edd8;
+  --color-cream-muted: #a89880;
+  --color-border: rgba(212, 168, 83, 0.18);
+  --color-border-hover: rgba(212, 168, 83, 0.4);
+  --color-overlay: rgba(20, 20, 16, 0.72);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --shadow-card: 0 4px 32px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 40px rgba(212, 168, 83, 0.15);
+  --shadow-ember: 0 0 60px rgba(200, 69, 42, 0.2);
+  --ease-luxury: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 700ms;
+  --duration-hero: 1200ms;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.18em;
+  --text-hero: clamp(88px, 16vw, 210px);
+  --text-display: clamp(56px, 9vw, 124px);
+  --text-heading: clamp(40px, 5.8vw, 78px);
+  --text-sub: clamp(24px, 2.8vw, 34px);
+  --text-body: 18px;
+  --text-small: 15px;
+  --text-label: 14px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, rgba(61, 90, 62, 0.15), transparent 28%),
+    linear-gradient(180deg, #17150f 0%, #141410 50%, #100f0c 100%);
+  color: var(--color-cream);
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-body);
+  min-height: 100vh;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  transition:
+    color var(--duration-fast) var(--ease-luxury),
+    background-color var(--duration-fast) var(--ease-luxury),
+    border-color var(--duration-fast) var(--ease-luxury),
+    transform var(--duration-fast) var(--ease-luxury),
+    opacity var(--duration-fast) var(--ease-luxury);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.container-shell {
+  @apply mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10;
+}
+
+.section-space {
+  @apply py-20 md:py-28;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.luxury-panel {
+  background: linear-gradient(180deg, rgba(37, 32, 24, 0.94), rgba(28, 26, 20, 0.88));
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(16px);
+}
+
+.gold-line {
+  position: relative;
+}
+
+.gold-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  transition: transform var(--duration-base) var(--ease-luxury);
+}
+
+.gold-line:hover::after,
+.gold-line:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.day-picker button {
+  color: var(--color-cream);
+}
+
+.day-picker .rdp-day_selected {
+  background: var(--color-gold);
+  color: #141410;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

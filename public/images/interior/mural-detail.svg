@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" fill="none">
+  <rect width="900" height="900" fill="#1C1A14"/>
+  <path d="M120 620C240 500 340 440 470 430C580 420 700 470 780 560" stroke="#F5EDD8" stroke-opacity=".5" stroke-width="12"/>
+  <path d="M180 540C260 500 340 480 430 480C520 480 630 520 720 590" stroke="#D4A853" stroke-opacity=".6" stroke-width="8"/>
+  <path d="M360 680C420 610 510 610 570 680" stroke="#C8452A" stroke-width="12" stroke-linecap="round"/>
+  <text x="90" y="810" fill="#F5EDD8" font-size="52" font-family="Georgia, serif">Venetian Mural</text>
+</svg>

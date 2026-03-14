@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" fill="none">
+  <rect width="1200" height="1600" fill="#15130F"/>
+  <circle cx="620" cy="720" r="360" fill="#C8452A"/>
+  <circle cx="620" cy="720" r="270" fill="#3D5A3E"/>
+  <circle cx="620" cy="720" r="150" fill="#D4A853" fill-opacity=".75"/>
+  <path d="M120 1240C280 1080 430 1000 620 1000C810 1000 960 1080 1080 1240" stroke="#F5EDD8" stroke-opacity=".2" stroke-width="24"/>
+  <text x="120" y="1450" fill="#F5EDD8" font-size="72" font-family="Georgia, serif">Oven Close-up</text>
+</svg>

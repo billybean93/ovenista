@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" fill="none">
+  <rect width="1200" height="1600" fill="#141410"/>
+  <rect x="0" y="0" width="760" height="1600" fill="#8A3E28"/>
+  <path d="M0 180H760M0 360H760M0 540H760M0 720H760M0 900H760M0 1080H760M0 1260H760M0 1440H760" stroke="#EAA38A" stroke-opacity=".35" stroke-width="8"/>
+  <path d="M180 0V1600M380 0V1600M580 0V1600" stroke="#EAA38A" stroke-opacity=".24" stroke-width="8"/>
+  <rect x="760" y="0" width="440" height="1600" fill="#1C1A14"/>
+  <text x="90" y="1490" fill="#F5EDD8" font-size="72" font-family="Georgia, serif">Brick Wall Story</text>
+</svg>
