@@ -127,7 +127,7 @@ export default function HeroSection() {
             <EmberParticle key={ember.x} {...ember} />
           ))}
         </div>
-        <div className="mt-16 flex flex-col items-center gap-2 self-center text-[14px] uppercase tracking-[0.28em] text-cream-muted">
+        <div className="mt-16 flex flex-col items-center gap-2 self-center text-base uppercase tracking-[0.24em] text-cream-muted">
           <span>scroll</span>
           <span className="h-12 w-px animate-pulse bg-gradient-to-b from-gold to-transparent" />
         </div>

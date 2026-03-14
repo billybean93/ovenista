@@ -31,11 +31,11 @@ export function DishCard({
         <div className="absolute inset-0 bg-card-gradient" />
       </div>
       <div className="absolute inset-x-0 bottom-0 space-y-3 p-6">
-        <p className="font-accent text-[14px] uppercase tracking-[0.22em] text-gold">
+        <p className="font-accent text-base uppercase tracking-[0.18em] text-gold">
           {category}
         </p>
         <h3 className="font-display text-3xl text-cream">{name}</h3>
-        <p className="max-w-sm text-[15px] leading-7 text-cream-muted">{description}</p>
+        <p className="max-w-sm text-base leading-7 text-cream-muted">{description}</p>
         <Button href={href} variant="ghost" className="px-0 text-gold">
           <span className="inline-flex items-center gap-2">
             Explore Menu

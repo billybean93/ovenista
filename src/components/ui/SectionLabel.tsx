@@ -9,7 +9,7 @@ export function SectionLabel({ text, className }: SectionLabelProps) {
   return (
     <p
       className={cn(
-        "font-accent text-[14px] uppercase tracking-[0.28em] text-gold",
+        "font-accent text-base uppercase tracking-[0.24em] text-gold",
         className,
       )}
     >

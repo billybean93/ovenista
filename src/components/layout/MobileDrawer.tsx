@@ -55,7 +55,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             </Link>
           </nav>
         </div>
-        <div className="space-y-3 text-sm text-cream-muted">
+        <div className="space-y-3 text-base text-cream-muted">
           <a href={restaurantContact.instagram} target="_blank" rel="noreferrer">
             Instagram
           </a>

@@ -10,14 +10,14 @@ export function Footer() {
         <div className="space-y-4">
           <p className="font-display text-5xl text-cream">OVENISTA</p>
           <p className="font-display text-2xl italic text-gold">From Oven With Soul</p>
-          <div className="space-y-2 text-sm text-cream-muted">
+          <div className="space-y-2 text-base text-cream-muted">
             <p>{restaurantContact.address}</p>
             <p>{restaurantContact.phone}</p>
             <p>{restaurantContact.email}</p>
           </div>
         </div>
         <div>
-          <p className="mb-5 font-accent text-[14px] uppercase tracking-[0.22em] text-gold">
+          <p className="mb-5 font-accent text-base uppercase tracking-[0.2em] text-gold">
             Quick Links
           </p>
           <div className="space-y-3">
@@ -32,7 +32,7 @@ export function Footer() {
           </div>
         </div>
         <div>
-          <p className="mb-5 font-accent text-[14px] uppercase tracking-[0.22em] text-gold">
+          <p className="mb-5 font-accent text-base uppercase tracking-[0.2em] text-gold">
             Follow Us
           </p>
           <div className="space-y-3">
@@ -48,7 +48,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="container-shell border-t border-[color:var(--color-border)] py-5 text-sm text-cream-muted">
+      <div className="container-shell border-t border-[color:var(--color-border)] py-5 text-base text-cream-muted">
         &copy; 2025 Ovenista · All rights reserved
       </div>
     </footer>

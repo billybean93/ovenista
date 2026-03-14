@@ -36,8 +36,8 @@
   --text-heading: clamp(40px, 5.8vw, 78px);
   --text-sub: clamp(24px, 2.8vw, 34px);
   --text-body: 18px;
-  --text-small: 15px;
-  --text-label: 14px;
+  --text-small: 16px;
+  --text-label: 16px;
 }
 
 html {

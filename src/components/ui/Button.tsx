@@ -17,7 +17,7 @@ const buttonVariants = cva(
           "border-[color:var(--color-border-hover)] bg-transparent text-cream hover:bg-gold hover:text-bg",
       },
       size: {
-        sm: "px-4 py-2.5 text-sm",
+        sm: "px-4 py-2.5 text-base",
         md: "px-5 py-3 text-base",
         lg: "px-7 py-4 text-base",
       },

@@ -58,7 +58,7 @@ export function ReservationForm({ compact }: ReservationFormProps) {
         </div>
         <h3 className="font-display text-4xl text-cream">Your table is confirmed.</h3>
         <p className="mt-3 max-w-md text-cream-muted">We&apos;ll see you soon.</p>
-        <p className="mt-4 text-[14px] uppercase tracking-[0.2em] text-gold">
+        <p className="mt-4 text-base uppercase tracking-[0.2em] text-gold">
           {format(submitted.date, "PPP")} · {submitted.time}
         </p>
       </div>
@@ -150,7 +150,7 @@ export function ReservationForm({ compact }: ReservationFormProps) {
           <Sparkles className="h-4 w-4" />
         </span>
       </Button>
-      {isSubmitting ? <p className="mt-3 text-[14px] text-cream-muted">Sending...</p> : null}
+      {isSubmitting ? <p className="mt-3 text-base text-cream-muted">Sending...</p> : null}
     </form>
   );
 }
@@ -166,11 +166,11 @@ function Field({
 }) {
   return (
     <label className="block space-y-2">
-      <span className="font-accent text-[14px] uppercase tracking-[0.22em] text-gold">
+      <span className="font-accent text-base uppercase tracking-[0.2em] text-gold">
         {label}
       </span>
       {children}
-      {error ? <span className="text-[14px] text-ember">{error}</span> : null}
+      {error ? <span className="text-base text-ember">{error}</span> : null}
     </label>
   );
 }

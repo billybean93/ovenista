@@ -62,14 +62,14 @@ export default function LocationSection() {
               <div className="flex gap-4">
                 <MapPin className="mt-1 h-5 w-5 text-ember" />
                 <div>
-                  <p className="font-accent text-[14px] uppercase tracking-[0.22em] text-gold">Address</p>
+                  <p className="font-accent text-base uppercase tracking-[0.18em] text-gold">Address</p>
                   <p className="mt-2 text-cream-muted">{restaurantContact.address}</p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <Clock3 className="mt-1 h-5 w-5 text-ember" />
                 <div>
-                  <p className="font-accent text-[14px] uppercase tracking-[0.22em] text-gold">Hours</p>
+                  <p className="font-accent text-base uppercase tracking-[0.18em] text-gold">Hours</p>
                   {hours.map((item) => (
                     <p key={item.day} className="mt-2 text-cream-muted">
                       {item.day}: {item.time}
@@ -80,11 +80,11 @@ export default function LocationSection() {
               <div className="flex gap-4">
                 <Phone className="mt-1 h-5 w-5 text-ember" />
                 <div>
-                  <p className="font-accent text-[14px] uppercase tracking-[0.22em] text-gold">Phone</p>
+                  <p className="font-accent text-base uppercase tracking-[0.18em] text-gold">Phone</p>
                   <p className="mt-2 text-cream-muted">{restaurantContact.phone}</p>
                 </div>
               </div>
-              <p className="font-accent text-[14px] uppercase tracking-[0.22em] text-gold">
+              <p className="font-accent text-base uppercase tracking-[0.18em] text-gold">
                 Dine-in · Takeaway
               </p>
             </div>

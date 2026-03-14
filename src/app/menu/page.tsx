@@ -23,7 +23,7 @@ export default function MenuPage() {
             <a
               key={category.id}
               href={`#${category.id}`}
-              className="rounded-full border border-transparent px-4 py-2 text-[15px] uppercase tracking-[0.18em] text-cream-muted hover:border-[color:var(--color-border)] hover:text-gold"
+              className="rounded-full border border-transparent px-4 py-2 text-base uppercase tracking-[0.16em] text-cream-muted hover:border-[color:var(--color-border)] hover:text-gold"
             >
               {category.label}
             </a>
@@ -42,7 +42,7 @@ export default function MenuPage() {
                   >
                     <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                       <div>
-                        <p className="font-accent text-[14px] uppercase tracking-[0.2em] text-gold">
+                        <p className="font-accent text-base uppercase tracking-[0.18em] text-gold">
                           {item.category}
                         </p>
                         <h3 className="mt-2 font-display text-4xl font-semibold leading-none tracking-[-0.02em] text-cream">{item.name}</h3>
@@ -52,7 +52,7 @@ export default function MenuPage() {
                             {item.dietaryTags.map((tag) => (
                               <span
                                 key={tag}
-                                className="rounded-full border border-[color:var(--color-border)] px-3 py-1 text-[14px] uppercase tracking-[0.16em] text-gold"
+                                className="rounded-full border border-[color:var(--color-border)] px-3 py-1 text-base uppercase tracking-[0.14em] text-gold"
                               >
                                 {tag}
                               </span>

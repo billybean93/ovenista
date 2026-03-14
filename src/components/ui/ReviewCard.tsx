@@ -15,10 +15,10 @@ export function ReviewCard({ rating, text, author, source, date }: Review) {
       </blockquote>
       <div className="space-y-3">
         <div>
-          <p className="text-[15px] text-cream">- {author}, via Google</p>
-          <p className="text-[14px] uppercase tracking-[0.18em] text-cream-muted">{date}</p>
+          <p className="text-base text-cream">- {author}, via Google</p>
+          <p className="text-base uppercase tracking-[0.14em] text-cream-muted">{date}</p>
         </div>
-        <p className="text-[14px] uppercase tracking-[0.2em] text-cream-muted">
+        <p className="text-base uppercase tracking-[0.16em] text-cream-muted">
           {source === "google" ? "Google Review" : "Tripadvisor"}
         </p>
       </div>
