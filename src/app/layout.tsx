@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { MobileBottomBar } from "@/components/layout/MobileBottomBar";
 import { Navbar } from "@/components/layout/Navbar";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
-import { manrope, manropeAccent, manropeDisplay } from "@/lib/fonts";
+import { italiannoScript, manrope, manropeAccent, manropeDisplay } from "@/lib/fonts";
 import { getRestaurantJsonLd, sharedMetadata } from "@/lib/metadata";
 
 import "./globals.css";
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manropeDisplay.variable} ${manropeAccent.variable} ${manrope.variable} antialiased`}
+        className={`${manropeDisplay.variable} ${manropeAccent.variable} ${manrope.variable} ${italiannoScript.variable} antialiased`}
       >
         <script
           type="application/ld+json"

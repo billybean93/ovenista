@@ -1,4 +1,4 @@
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Italianno, Manrope } from "next/font/google";
 
 export const manrope = Manrope({
   subsets: ["latin"],
@@ -22,4 +22,12 @@ export const manropeAccent = Manrope({
   variable: "--font-accent",
   display: "swap",
   preload: false,
+});
+
+export const italiannoScript = Italianno({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-script",
+  display: "swap",
+  preload: true,
 });

@@ -13,19 +13,10 @@ export default function HeroSection() {
           muted
           loop
           playsInline
+          src="/images/hero/hero-video.mp4"
           poster={heroPosterSrc}
           preload="metadata"
-          className="hidden h-full w-full object-cover object-center md:block"
-        >
-          <source
-            src="/images/hero/hero-video.mp4"
-            type="video/mp4"
-            media="(min-width: 768px)"
-          />
-        </video>
-        <div
-          className="block h-full w-full bg-cover bg-center md:hidden"
-          style={{ backgroundImage: `url('${heroPosterSrc}')` }}
+          className="h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,10,7,0.2)_0%,rgba(22,15,10,0.4)_42%,rgba(20,13,9,0.72)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_36%,rgba(255,255,255,0.08),transparent_22%),radial-gradient(circle_at_50%_100%,rgba(7,5,4,0.48),transparent_28%)]" />
@@ -34,7 +25,7 @@ export default function HeroSection() {
 
       <div className="container-shell relative z-10 flex min-h-[calc(100dvh-56px)] flex-col items-center justify-center pb-12 pt-12 text-center">
         <div className="flex max-w-4xl flex-col items-center">
-          <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.4em] text-[#e6c164]">
+          <p className="mb-5 text-[20px] font-semibold uppercase tracking-[0.4em] text-[#e6c164]">
             European Craft Kitchen
           </p>
           <h1 className="flex flex-nowrap whitespace-nowrap font-display text-[clamp(58px,12vw,108px)] font-medium leading-[0.88] tracking-[0.03em] text-white drop-shadow-[0_18px_40px_rgba(0,0,0,0.38)]">

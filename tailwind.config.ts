@@ -19,6 +19,7 @@ const config: Config = {
         display: ["var(--font-display)", "serif"],
         body: ["var(--font-body)", "sans-serif"],
         accent: ["var(--font-accent)", "serif"],
+        script: ["var(--font-script)", "cursive"],
       },
       boxShadow: {
         card: "0 18px 44px rgba(121, 92, 55, 0.12)",
