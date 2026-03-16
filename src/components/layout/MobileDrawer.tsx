@@ -26,7 +26,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
       aria-hidden={!open}
     >
       <button
-        className={`absolute inset-0 bg-black/60 transition ${open ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-0 bg-[rgba(63,52,39,0.24)] transition ${open ? "opacity-100" : "opacity-0"}`}
         onClick={onClose}
         aria-label="Close navigation drawer"
       />
@@ -35,7 +35,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
       >
         <div>
           <div className="mb-12 flex items-center justify-between">
-            <p className="font-display text-3xl text-gold">OVENISTA</p>
+            <p className="font-display text-3xl text-ember">OVENISTA</p>
             <button onClick={onClose} aria-label="Close menu">
               <X className="h-6 w-6 text-cream" />
             </button>
@@ -45,12 +45,12 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block font-display text-4xl italic text-cream"
+                className="block font-display text-4xl text-cream"
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/reserve" className="block font-display text-4xl italic text-gold">
+            <Link href="/reserve" className="block font-display text-4xl text-ember">
               Reserve
             </Link>
           </nav>

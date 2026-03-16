@@ -46,47 +46,49 @@
 
 ### Visual Identity (extracted from restaurant photo)
 
-The restaurant has a stunning, distinctive interior:
-- **Exposed orange-red brick wall** — raw, textural, warm
-- **Dark charcoal/slate walls** — moody backdrop
-- **A red-domed wood-fired oven** tiled in deep forest green, with the *Ovenista* name glowing in warm gold script — **this is the hero object of the brand**
-- **Edison string lights** hanging overhead — amber glow, intimate
-- **A large hand-drawn mural** of a Venetian gondola scene on the dark wall — European soul, illustrative energy
-- **Dark wood tables, red napkins** — warm and unpretentious
+The restaurant has a distinctive interior that should be translated digitally with a brighter, friendlier lens:
+- **Exposed orange-red brick wall** — use this as a tomato/clay accent cue rather than a reason for dark-heavy UI
+- **The red-domed wood-fired oven** tiled in green, with the *Ovenista* name glowing in warm script — **this remains the hero object of the brand**
+- **Edison string lights** — interpret these as sunny butter-yellow highlights and soft ambient warmth
+- **A large hand-drawn mural** of a Venetian gondola scene — use its looseness and hand-made energy to justify soft shapes, playful dividers, and organic color rhythm
+- **Wood tables, red napkins, open kitchen warmth** — translate into cream-led surfaces, tactile materials, and welcoming contrast
+
+Digital expression should feel **sunlit, crafted, lively, and generous**: more neighborhood-European warmth than moody fine-dining darkness.
 
 ### Color Palette
 
 ```css
 :root {
   /* Core */
-  --color-bg:          #141410;   /* Near-black charcoal — dark walls */
-  --color-bg-surface:  #1C1A14;   /* Slightly warmer dark — table/card backgrounds */
-  --color-bg-elevated: #252018;   /* Elevated surfaces, modals */
+  --color-bg:          #FFF7E8;   /* Warm cream — primary page background */
+  --color-bg-surface:  #FFF1D8;   /* Pale sand — cards, content blocks */
+  --color-bg-elevated: #FFE5BF;   /* Elevated cream — menus, drawers, modals */
 
   /* Brand */
-  --color-ember:       #C8452A;   /* Brick red / ember — brick wall + oven dome */
-  --color-gold:        #D4A853;   /* Warm gold — glowing Ovenista script */
-  --color-gold-muted:  #9A7A3A;   /* Gold at rest / secondary accents */
-  --color-forest:      #3D5A3E;   /* Deep forest green — oven tile surround */
-  --color-cream:       #F5EDD8;   /* Warm linen/cream — primary text */
-  --color-cream-muted: #A89880;   /* Muted cream — secondary text, captions */
+  --color-ember:       #E85B3B;   /* Tomato coral — pizza sauce, brick warmth, CTAs */
+  --color-gold:        #E6B93D;   /* Butter ochre — sunny accents and highlights */
+  --color-gold-muted:  #C8952D;   /* Toasted ochre — calm accent state */
+  --color-forest:      #4E8B57;   /* Leafy herb green — freshness, takeaway, details */
+  --color-cream:       #3F3427;   /* Dark espresso text — primary text on light UI */
+  --color-cream-muted: #7A6A58;   /* Warm taupe — secondary copy, captions */
 
   /* Functional */
-  --color-border:      rgba(212, 168, 83, 0.18);  /* Gold border at low opacity */
-  --color-border-hover:rgba(212, 168, 83, 0.40);
-  --color-overlay:     rgba(20, 20, 16, 0.72);    /* For image overlays */
+  --color-border:      rgba(121, 92, 55, 0.14);   /* Soft clay border */
+  --color-border-hover:rgba(232, 91, 59, 0.38);   /* Tomato accent on interaction */
+  --color-overlay:     rgba(255, 247, 232, 0.28); /* Gentle light wash for images */
 
   /* Gradients */
   --gradient-hero:     linear-gradient(
                          to bottom,
-                         rgba(20,20,16,0.10) 0%,
-                         rgba(20,20,16,0.40) 60%,
-                         rgba(20,20,16,0.92) 100%
+                         rgba(255,247,232,0.08) 0%,
+                         rgba(255,232,199,0.18) 45%,
+                         rgba(255,247,232,0.48) 100%
                        );
   --gradient-card:     linear-gradient(
                          to bottom,
-                         rgba(20,20,16,0) 30%,
-                         rgba(20,20,16,0.95) 100%
+                         rgba(255,255,255,0.08) 0%,
+                         rgba(255,241,216,0.55) 55%,
+                         rgba(255,229,191,0.92) 100%
                        );
 }
 ```
@@ -96,40 +98,48 @@ The restaurant has a stunning, distinctive interior:
 ```css
 /* Load in app/layout.tsx via next/font/google */
 
---font-display:  'Cormorant Garamond', serif;
-/* Usage: headings, hero title, section titles, restaurant name */
-/* Style: elegant, tall, old-world Italian editorial */
+--font-display:  'Lora', serif;
+/* Usage: hero title, major headings, section titles, restaurant name */
+/* Style: calm, warm, refined — classic without feeling formal */
 
---font-body:     'Jost', sans-serif;
-/* Usage: body copy, nav links, labels, buttons */
-/* Style: geometric humanist, clean but warm — not sterile */
+--font-body:     'Manrope', sans-serif;
+/* Usage: body copy, nav links, labels, buttons, form text */
+/* Style: clean, contemporary, soft — friendly rather than geometric/rigid */
 
---font-accent:   'Cormorant SC', serif;
-/* Usage: small-caps labels, category tags, "FROM OVEN WITH SOUL" decorative text */
-/* Style: same family as display, spaced small-caps */
+--font-accent:   'Lora', serif;
+/* Usage: restrained accent moments, labels, short decorative text */
+/* Style: same tonal family as display, used sparingly and without ornamental treatment */
 ```
+
+#### Typographic Direction
+
+- Take cues from **airy hospitality sites**: generous sizing, softer hierarchy, and more breathing room
+- Avoid over-stylized luxury cues like aggressive tracking, excessive small caps, or overly formal serif treatment
+- Headings should feel **warm and calm**, not theatrical
+- Body text should feel **clear, conversational, and human**
+- Use all-caps labels sparingly; when used, keep tracking moderate and never let labels overpower content
 
 #### Type Scale
 
 ```css
---text-hero:    clamp(72px, 10vw, 140px);   /* "OVENISTA" main title */
---text-display: clamp(48px, 6vw, 88px);     /* Section heroes */
---text-heading: clamp(32px, 4vw, 54px);     /* Section titles */
---text-sub:     clamp(18px, 2vw, 24px);     /* Subheadings */
---text-body:    16px;                        /* Body copy */
---text-small:   13px;                        /* Captions, labels */
---text-label:   11px;                        /* Small caps, tags */
+--text-hero:    clamp(88px, 16vw, 210px);   /* "OVENISTA" main title */
+--text-display: clamp(56px, 9vw, 124px);    /* Page heroes */
+--text-heading: clamp(40px, 5.8vw, 78px);   /* Section titles */
+--text-sub:     clamp(24px, 2.8vw, 34px);   /* Subheadings */
+--text-body:    18px;                        /* Body copy */
+--text-small:   16px;                        /* Captions, labels */
+--text-label:   16px;                        /* Small caps, tags */
 
 /* Letter spacing for display/accent text */
---tracking-wide:  0.08em;
---tracking-wider: 0.18em;  /* Used on small-caps labels */
+--tracking-wide:  0.04em;
+--tracking-wider: 0.12em;  /* Used on labels only, with restraint */
 ```
 
 ### Texture & Atmosphere
 
-- Apply a **grain overlay** globally (SVG noise filter or CSS, ~4% opacity) — gives warmth, depth, and avoids sterile digital look
-- Use **background-blend-mode: multiply** on image cards with the dark overlay
-- The **Venetian mural illustration style** should influence decorative SVG dividers between sections (thin horizontal line with a small gondola or flame motif center)
+- Apply a **subtle grain overlay** globally (SVG noise filter or CSS, ~2–3% opacity) — enough to keep the site tactile without dulling the brighter palette
+- Favor **airy gradients, cream washes, and soft organic color fields** over heavy dark overlays
+- Let the **Venetian mural illustration style** influence dividers and decorative motifs, but keep them light, sparse, and playful rather than ornate
 
 ---
 
@@ -154,9 +164,9 @@ The restaurant has a stunning, distinctive interior:
 ### Shadows
 
 ```css
---shadow-card:  0 4px 32px rgba(0,0,0,0.6);
---shadow-glow:  0 0 40px rgba(212, 168, 83, 0.15);  /* Gold aura on hover */
---shadow-ember: 0 0 60px rgba(200, 69, 42, 0.20);   /* Ember glow near oven section */
+--shadow-card:  0 18px 44px rgba(121, 92, 55, 0.12);
+--shadow-glow:  0 0 40px rgba(230, 185, 61, 0.18);   /* Sunny aura on hover */
+--shadow-ember: 0 0 52px rgba(232, 91, 59, 0.18);   /* Tomato warmth near CTA sections */
 ```
 
 ### Motion Tokens
@@ -221,15 +231,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg:        '#141410',
-        surface:   '#1C1A14',
-        elevated:  '#252018',
-        ember:     '#C8452A',
-        gold:      '#D4A853',
-        'gold-muted': '#9A7A3A',
-        forest:    '#3D5A3E',
-        cream:     '#F5EDD8',
-        'cream-muted': '#A89880',
+        bg:        '#FFF7E8',
+        surface:   '#FFF1D8',
+        elevated:  '#FFE5BF',
+        ember:     '#E85B3B',
+        gold:      '#E6B93D',
+        'gold-muted': '#C8952D',
+        forest:    '#4E8B57',
+        cream:     '#3F3427',
+        'cream-muted': '#7A6A58',
       },
       fontFamily: {
         display: ['var(--font-display)', 'serif'],
@@ -256,8 +266,8 @@ const config: Config = {
           to:   { opacity: '1', transform: 'translateY(0)' },
         },
         glowPulse: {
-          '0%, 100%': { boxShadow: '0 0 30px rgba(212,168,83,0.10)' },
-          '50%':      { boxShadow: '0 0 60px rgba(212,168,83,0.25)' },
+          '0%, 100%': { boxShadow: '0 0 24px rgba(230,185,61,0.12)' },
+          '50%':      { boxShadow: '0 0 48px rgba(232,91,59,0.18)' },
         },
       },
     },
@@ -379,7 +389,7 @@ The main experience. All sections flow as a single scroll narrative. This is the
 - Categorized menu: Pizza / Pasta / Long-Smoked / Drinks / Desserts
 - Each item: name, description, price, dietary tags
 - Sticky category tabs at top
-- Same dark aesthetic, warm card design
+- Same bright cream-led aesthetic, playful warm card design
 
 ### `/reserve` — Reservation Page
 - Full-page reservation form
@@ -424,11 +434,11 @@ export default function robots(): MetadataRoute.Robots {
 ### 7.1 Navbar
 
 **Desktop:**
-- Fixed, full-width, starts transparent — transitions to `rgba(20,20,16,0.92)` + `backdrop-blur(12px)` on scroll > 80px
-- Left: `OVENISTA` wordmark in Cormorant Garamond, gold, 22px, spaced
+- Fixed, full-width, starts lightly transparent over the hero — transitions to a **frosted cream surface** with `backdrop-blur(12px)` on scroll > 80px
+- Left: `OVENISTA` wordmark in Lora, tomato/ochre accent, 22px, lightly spaced
 - Center: Nav links — `Menu` / `Our Story` / `Gallery` / `Location`
-- Right: `Reserve a Table` button (gold border, cream text, hover fills gold)
-- Thin 1px gold border-bottom at 8% opacity when scrolled
+- Right: `Reserve a Table` button (tomato or herb-green fill, espresso text, hover deepens slightly)
+- Thin 1px clay border-bottom at low opacity when scrolled
 
 **Mobile:**
 - Same fixed header, hamburger icon on right opens `MobileDrawer`
@@ -436,8 +446,8 @@ export default function robots(): MetadataRoute.Robots {
 
 **MobileDrawer:**
 - Slides in from right, full-height
-- Dark surface background (`--color-bg-elevated`)
-- Links stacked vertically in large Cormorant italic
+- Cream/elevated surface background (`--color-bg-elevated`)
+- Links stacked vertically in large Lora
 - Social icons at bottom (Instagram, Facebook)
 - Closes on route change or outside click
 
@@ -452,7 +462,7 @@ export default function robots(): MetadataRoute.Robots {
 - 3–5 images: interior shot, oven close-up, hero food shot, mural detail
 - **Ken Burns effect** on each slide: slow `scale(1.08)` over 6s duration
 - Crossfade transition between slides (1s)
-- Gradient overlay: `--gradient-hero` (transparent top → near-black bottom)
+- Gradient overlay: `--gradient-hero` (light cream wash with enough contrast for the wordmark)
 
 #### Video variant:
 - `<video autoPlay muted loop playsInline>` as background
@@ -464,32 +474,32 @@ export default function robots(): MetadataRoute.Robots {
 [SectionLabel]  — Authentic European Dining —
 
 [AnimatedText]  OVENISTA
-                (staggered letter reveal, Cormorant Garamond, hero size)
+                (staggered letter reveal, Lora, hero size, kept on a single line)
 
 [Tagline]       From Oven With Soul
-                (fades in 400ms after title, Jost 18px, cream-muted, tracked)
+                (fades in 400ms after title, Manrope 18px or Lora italic for a softer, calmer feel)
 
 [CTAs]          [Reserve a Table]   [View Menu]
                 (staggered entrance 200ms after tagline)
 ```
 
 **Ember particles:**
-- 6–8 small orange/amber dots (`3–6px`)
+- 6–8 small tomato/butter-yellow dots (`3–6px`)
 - Float upward with `emberFloat` keyframe animation
 - Random `animation-delay` and `animation-duration` per particle
 - Positioned in bottom 30% of hero — simulates rising heat from oven
 
 **Scroll indicator:**
 - Thin animated line pulsing downward at bottom center
-- Text: "scroll" in `11px` small-caps, cream-muted
+- Text: "scroll" in `16px` small-caps, cream-muted
 
 ---
 
 ### 7.3 Manifesto Strip
 
-**Full-width, dark background, ~180px tall on desktop.**
+**Full-width, bright accent band, ~180px tall on desktop.**
 
-Left half: Large editorial quote in Cormorant Garamond italic — *"Crafted with passion, baked with soul."*
+Left half: Large quote in Lora italic — *"Crafted with passion, baked with soul."*
 
 Right half (or below on mobile): Infinite horizontal marquee loop:
 
@@ -497,9 +507,9 @@ Right half (or below on mobile): Infinite horizontal marquee loop:
 Pizza  ·  Handmade Pasta  ·  Long-Smoked  ·  European Craft  ·  Dine-in  ·  Takeaway  ·
 ```
 
-Marquee text: `Jost`, `--text-sub`, `--color-gold-muted`, `--tracking-wider`
+Marquee text: `Manrope`, `--text-sub`, toasted ochre / herb green accents, `--tracking-wider`
 
-Thin `1px` top and bottom borders in gold at 12% opacity separate this strip from adjacent sections.
+Thin `1px` top and bottom borders in warm clay at low opacity separate this strip from adjacent sections.
 
 ---
 
@@ -524,9 +534,9 @@ Thin `1px` top and bottom borders in gold at 12% opacity separate this strip fro
 │                             │
 │   [gradient overlay]        │
 │                             │
-│  Category label (gold, sm)  │
-│  Dish name (Cormorant, 28px)│
-│  Short description (Jost)   │
+│  Category label (ochre, sm) │
+│  Dish name (Lora, 28px)     │
+│  Short description (Manrope)│
 │  → Explore Menu             │
 └─────────────────────────────┘
 ```
@@ -534,7 +544,7 @@ Thin `1px` top and bottom borders in gold at 12% opacity separate this strip fro
 **Hover state:**
 - Image scales to `1.06` (300ms)
 - Card border: `1px solid var(--color-border-hover)`
-- Subtle `--shadow-glow` appears beneath card
+- Subtle warm `--shadow-glow` appears beneath card
 - Arrow icon translates `4px` right
 
 **Scroll entrance:** Cards stagger in from bottom with `fadeUp` — 100ms delay between each.
@@ -545,7 +555,7 @@ Thin `1px` top and bottom borders in gold at 12% opacity separate this strip fro
 
 **Split layout — desktop only:**
 
-Left column (55%): The restaurant interior photo (provided), displayed as a tall `3:4` image with a subtle warm vignette overlay on the edges. A thin gold border frame sits `16px` inset from the photo edge.
+Left column (55%): The restaurant interior photo (provided), displayed as a tall `3:4` image with a soft cream wash and sunlit vignette. A thin ochre border frame sits `16px` inset from the photo edge.
 
 Right column (45%): Story copy
 
@@ -565,7 +575,7 @@ Right column (45%): Story copy
   intimate, unhurried, and made with love.
 
 [Signature line]  — The Ovenista Kitchen
-  (in Cormorant italic, gold, 18px — like a handwritten signature)
+  (in Lora italic, tomato/ochre accent, 18px — warm and understated)
 ```
 
 **Decorative detail:** A small flame SVG icon (3 strokes, minimal) sits between the section label and heading.
@@ -603,7 +613,7 @@ Precise grid:
 
 Gap: `8px` between images. Each image: `overflow-hidden`, `object-fit-cover`.
 
-**Hover:** Image scales to `1.04`, a very subtle `rgba(212,168,83,0.08)` gold tint overlay appears.
+**Hover:** Image scales to `1.04`, a very subtle `rgba(232,91,59,0.10)` tomato tint or butter wash overlay appears.
 
 **Mobile:** Horizontal scroll carousel — snap-scroll, full-width slides, swipe gesture.
 
@@ -632,13 +642,13 @@ Card style: `--color-bg-surface` background, `1px solid var(--color-border)` bor
 
 **Stagger entrance:** Cards animate in from bottom, 150ms apart.
 
-**Source badge:** Small Google "G" icon + "Google Review" label at card bottom — cream-muted, 11px.
+**Source badge:** Small Google "G" icon + "Google Review" label at card bottom — warm taupe, 16px.
 
 ---
 
 ### 7.8 Takeaway Banner
 
-**Full-width strip, ~200px tall, forest green background (`--color-forest`)**
+**Full-width strip, ~200px tall, cheerful accent background (`--color-forest` or a tomato/ochre blend)** 
 
 Left: Heading + subtext
 ```
@@ -647,10 +657,10 @@ Pizza & Pasta made fresh for takeaway — call ahead or walk in.
 ```
 
 Right: Two buttons
-- `Call to Order` (cream border, cream text)
-- `Get Directions` (gold fill, dark text)
+- `Call to Order` (espresso border, espresso text)
+- `Get Directions` (tomato or ochre fill, espresso text)
 
-Subtle texture: grain overlay at slightly higher opacity on this strip.
+Subtle texture: grain overlay at slightly higher opacity on this strip, plus a soft organic color field in the background.
 
 On mobile: stack vertically, buttons full-width.
 
@@ -661,7 +671,7 @@ On mobile: stack vertically, buttons full-width.
 **Section Label:** `— Book Your Table —`
 **Section Title:** `Reserve Your Evening`
 
-**Background:** Full-width image behind form with `--color-overlay` darkening it. Use the interior/ambiance photo.
+**Background:** Full-width image behind form with a **light cream wash** from `--color-overlay`. Use the interior/ambiance photo.
 
 **Form fields:**
 
@@ -678,10 +688,10 @@ Special Requests    [textarea, 3 rows]
 ```
 
 **Input style:**
-- Background: `rgba(255,255,255,0.04)`
+- Background: `rgba(255,255,255,0.45)` or `rgba(255,241,216,0.72)`
 - Border: `1px solid var(--color-border)` → `var(--color-border-hover)` on focus
-- Label: `11px` small-caps, gold, above each input
-- Text: cream, `--font-body`
+- Label: `16px` small-caps, ochre/tomato accent, above each input
+- Text: espresso, `--font-body`
 - Placeholder: cream-muted
 
 **Success state:**
@@ -734,7 +744,7 @@ Right (45%): Info block
 [Get Directions →]    [Call Now →]
 ```
 
-Labels: small-caps gold. Values: cream. Icons: lucide-react icons in ember color.
+Labels: small-caps ochre/tomato. Values: espresso. Icons: lucide-react icons in ember/tomato color.
 
 **Mobile:** Stack vertically — map on top (320px tall), info below.
 
@@ -757,10 +767,10 @@ Labels: small-caps gold. Values: cream. Icons: lucide-react icons in ember color
 └───────────────────────────────────────────────────────┘
 ```
 
-- Background: `--color-bg` (darkest)
+- Background: `--color-bg` or a softly tinted cream band
 - Top border: `1px solid var(--color-border)`
-- Logo in Cormorant Garamond, cream, large
-- Links: Jost, cream-muted, hover → gold
+- Logo in Lora, espresso, large
+- Links: Manrope, cream-muted, hover → tomato or herb green
 - Social icons: Lucide, 20px, hover → ember color
 
 ---
@@ -780,9 +790,9 @@ type ButtonProps = {
 }
 ```
 
-- `primary`: gold background, dark text, hover darkens
-- `ghost`: no background, cream text, hover adds subtle cream bg at 8%
-- `outline`: gold border, cream text, hover fills gold
+- `primary`: tomato or ochre background, espresso text, hover deepens slightly
+- `ghost`: no background, espresso text, hover adds subtle warm cream bg
+- `outline`: clay/ochre border, espresso text, hover fills with a soft accent tint
 
 ### `SectionLabel.tsx`
 
@@ -843,7 +853,7 @@ export function GrainOverlay() {
 
 ```tsx
 // Thin SVG horizontal rule with centered flame/ornament motif
-// 80% opacity gold stroke, 0.5px line, ornament in ember color
+// Warm ochre stroke, 0.5px line, ornament in tomato/ember color
 ```
 
 ### `EmberParticle.tsx`
@@ -909,12 +919,12 @@ Use Framer Motion `useInView` with `once: true` and `margin: "-10%"`:
 
 | Element | Hover Effect |
 |---|---|
-| Dish card | Image scale 1.06, gold border, glow shadow |
-| Gallery image | Scale 1.04, gold tint overlay |
-| Nav link | Color transitions to gold, underline expands from left |
+| Dish card | Image scale 1.06, tomato/clay border, warm glow shadow |
+| Gallery image | Scale 1.04, tomato or butter tint overlay |
+| Nav link | Color transitions to tomato/forest, underline expands from left |
 | Button (primary) | Darken 10%, scale 0.98 |
 | Footer link | Slide-in underline from left |
-| Review card | Lift `translateY(-4px)`, border brightens |
+| Review card | Lift `translateY(-4px)`, border brightens with warm accent |
 
 ### Marquee (ManifestoStrip)
 
@@ -1078,9 +1088,6 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 64, 96, 128],
   },
-  experimental: {
-    optimizeCss: true,   // Critters for CSS inlining
-  },
   compress: true,
   poweredByHeader: false,
 }
@@ -1092,28 +1099,29 @@ export default nextConfig
 
 ```tsx
 // src/lib/fonts.ts
-import { Cormorant_Garamond, Cormorant_SC, Jost } from 'next/font/google'
+import { Lora, Manrope } from 'next/font/google'
 
-export const cormorant = Cormorant_Garamond({
+export const lora = Lora({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic'],
   variable: '--font-display',
   display: 'swap',  // Prevent invisible text during font load
   preload: true,
 })
 
-export const cormorantSC = Cormorant_SC({
+export const loraAccent = Lora({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
+  weight: ['500', '600'],
+  style: ['normal', 'italic'],
   variable: '--font-accent',
   display: 'swap',
   preload: false,  // Not critical path
 })
 
-export const jost = Jost({
+export const manrope = Manrope({
   subsets: ['latin'],
-  weight: ['300', '400', '500'],
+  weight: ['400', '500', '600'],
   variable: '--font-body',
   display: 'swap',
   preload: true,
@@ -1248,17 +1256,17 @@ Sticky bottom bar on mobile only (`md:hidden`):
 ```css
 /* Scale down on small screens — handled by clamp() in type scale */
 /* Minimum sizes guaranteed by clamp first value */
---text-hero:    clamp(52px, 15vw, 140px);
---text-display: clamp(36px, 8vw, 88px);
---text-heading: clamp(26px, 5vw, 54px);
+--text-hero:    clamp(88px, 16vw, 210px);
+--text-display: clamp(56px, 9vw, 124px);
+--text-heading: clamp(40px, 5.8vw, 78px);
 ```
 
 ### Touch & Accessibility
 
 - All interactive elements: minimum `44px × 44px` touch target
-- Color contrast: cream on dark bg = 10:1+ (WCAG AAA)
-- Gold on dark = tested for 4.5:1 minimum (AA)
-- Focus styles: gold `outline` on keyboard focus, `outline-offset: 2px`
+- Color contrast: espresso text on cream backgrounds = 10:1+ (WCAG AAA target)
+- Accent colors on light surfaces = tested for 4.5:1 minimum (AA)
+- Focus styles: tomato/ochre `outline` on keyboard focus, `outline-offset: 2px`
 - `aria-label` on all icon-only buttons
 - Reservation form: proper `<label>` for every `<input>`
 - Images: descriptive `alt` text on every `<Image>`
@@ -1303,7 +1311,7 @@ Use this section to assign individual tasks to agents or development sprints.
 |---|---|---|
 | 1.1 | Init Next.js project with TypeScript + Tailwind | `package.json`, `tsconfig.json` |
 | 1.2 | Configure Tailwind with brand tokens | `tailwind.config.ts` |
-| 1.3 | Set up font loading (Cormorant Garamond, Cormorant SC, Jost) | `src/lib/fonts.ts`, `app/layout.tsx` |
+| 1.3 | Set up font loading (Lora + Manrope, with Lora reused for accent moments) | `src/lib/fonts.ts`, `app/layout.tsx` |
 | 1.4 | Create CSS variables in `globals.css` | `app/globals.css` |
 | 1.5 | Set up `cn()` utility | `src/lib/utils.ts` |
 | 1.6 | Create `restaurant-data.ts` with all static content | `src/lib/restaurant-data.ts` |

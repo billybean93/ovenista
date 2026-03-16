@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { MobileBottomBar } from "@/components/layout/MobileBottomBar";
 import { Navbar } from "@/components/layout/Navbar";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
-import { cormorant, cormorantSC, jost } from "@/lib/fonts";
+import { manrope, manropeAccent, manropeDisplay } from "@/lib/fonts";
 import { getRestaurantJsonLd, sharedMetadata } from "@/lib/metadata";
 
 import "./globals.css";
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cormorant.variable} ${cormorantSC.variable} ${jost.variable} antialiased`}
+        className={`${manropeDisplay.variable} ${manropeAccent.variable} ${manrope.variable} antialiased`}
       >
         <script
           type="application/ld+json"

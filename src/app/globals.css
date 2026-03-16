@@ -3,34 +3,34 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #141410;
-  --color-bg-surface: #1c1a14;
-  --color-bg-elevated: #252018;
-  --color-ember: #c8452a;
-  --color-gold: #d4a853;
-  --color-gold-muted: #9a7a3a;
-  --color-forest: #3d5a3e;
-  --color-cream: #f5edd8;
-  --color-cream-muted: #a89880;
-  --color-border: rgba(212, 168, 83, 0.18);
-  --color-border-hover: rgba(212, 168, 83, 0.4);
-  --color-overlay: rgba(20, 20, 16, 0.72);
+  --color-bg: #fff7e8;
+  --color-bg-surface: #fff1d8;
+  --color-bg-elevated: #ffe5bf;
+  --color-ember: #e85b3b;
+  --color-gold: #e6b93d;
+  --color-gold-muted: #c8952d;
+  --color-forest: #4e8b57;
+  --color-cream: #3f3427;
+  --color-cream-muted: #7a6a58;
+  --color-border: rgba(121, 92, 55, 0.14);
+  --color-border-hover: rgba(232, 91, 59, 0.38);
+  --color-overlay: rgba(255, 247, 232, 0.28);
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-full: 9999px;
-  --shadow-card: 0 4px 32px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 40px rgba(212, 168, 83, 0.15);
-  --shadow-ember: 0 0 60px rgba(200, 69, 42, 0.2);
+  --shadow-card: 0 18px 44px rgba(121, 92, 55, 0.12);
+  --shadow-glow: 0 0 40px rgba(230, 185, 61, 0.18);
+  --shadow-ember: 0 0 52px rgba(232, 91, 59, 0.18);
   --ease-luxury: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 200ms;
   --duration-base: 400ms;
   --duration-slow: 700ms;
   --duration-hero: 1200ms;
-  --tracking-wide: 0.08em;
-  --tracking-wider: 0.18em;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.12em;
   --text-hero: clamp(88px, 16vw, 210px);
   --text-display: clamp(56px, 9vw, 124px);
   --text-heading: clamp(40px, 5.8vw, 78px);
@@ -45,12 +45,11 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at top, rgba(61, 90, 62, 0.15), transparent 28%),
-    linear-gradient(180deg, #17150f 0%, #141410 50%, #100f0c 100%);
+  background: #f6edde;
   color: var(--color-cream);
   font-family: var(--font-body), sans-serif;
   font-size: var(--text-body);
+  line-height: 1.5;
   min-height: 100vh;
 }
 
@@ -102,7 +101,7 @@ select:focus-visible {
 }
 
 .luxury-panel {
-  background: linear-gradient(180deg, rgba(37, 32, 24, 0.94), rgba(28, 26, 20, 0.88));
+  background: linear-gradient(180deg, rgba(255, 249, 238, 0.92), rgba(255, 241, 216, 0.9));
   box-shadow: var(--shadow-card);
   backdrop-filter: blur(16px);
 }
@@ -120,7 +119,7 @@ select:focus-visible {
   height: 1px;
   transform: scaleX(0);
   transform-origin: left;
-  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  background: linear-gradient(90deg, transparent, var(--color-ember), transparent);
   transition: transform var(--duration-base) var(--ease-luxury);
 }
 
@@ -134,8 +133,8 @@ select:focus-visible {
 }
 
 .day-picker .rdp-day_selected {
-  background: var(--color-gold);
-  color: #141410;
+  background: var(--color-ember);
+  color: #fff7e8;
 }
 
 @media (prefers-reduced-motion: reduce) {

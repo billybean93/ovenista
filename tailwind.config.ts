@@ -5,15 +5,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#141410",
-        surface: "#1C1A14",
-        elevated: "#252018",
-        ember: "#C8452A",
-        gold: "#D4A853",
-        "gold-muted": "#9A7A3A",
-        forest: "#3D5A3E",
-        cream: "#F5EDD8",
-        "cream-muted": "#A89880",
+        bg: "#FFF7E8",
+        surface: "#FFF1D8",
+        elevated: "#FFE5BF",
+        ember: "#E85B3B",
+        gold: "#E6B93D",
+        "gold-muted": "#C8952D",
+        forest: "#4E8B57",
+        cream: "#3F3427",
+        "cream-muted": "#7A6A58",
       },
       fontFamily: {
         display: ["var(--font-display)", "serif"],
@@ -21,9 +21,9 @@ const config: Config = {
         accent: ["var(--font-accent)", "serif"],
       },
       boxShadow: {
-        card: "0 4px 32px rgba(0,0,0,0.6)",
-        glow: "0 0 40px rgba(212, 168, 83, 0.15)",
-        ember: "0 0 60px rgba(200, 69, 42, 0.20)",
+        card: "0 18px 44px rgba(121, 92, 55, 0.12)",
+        glow: "0 0 40px rgba(230, 185, 61, 0.18)",
+        ember: "0 0 52px rgba(232, 91, 59, 0.18)",
       },
       animation: {
         "ember-float": "emberFloat 4s ease-in-out infinite",
@@ -45,15 +45,15 @@ const config: Config = {
           to: { opacity: "1", transform: "translateY(0)" },
         },
         glowPulse: {
-          "0%, 100%": { boxShadow: "0 0 30px rgba(212,168,83,0.10)" },
-          "50%": { boxShadow: "0 0 60px rgba(212,168,83,0.25)" },
+          "0%, 100%": { boxShadow: "0 0 24px rgba(230,185,61,0.12)" },
+          "50%": { boxShadow: "0 0 48px rgba(232,91,59,0.18)" },
         },
       },
       backgroundImage: {
         "hero-gradient":
-          "linear-gradient(to bottom, rgba(20,20,16,0.10) 0%, rgba(20,20,16,0.40) 60%, rgba(20,20,16,0.92) 100%)",
+          "linear-gradient(to bottom, rgba(255,247,232,0.08) 0%, rgba(255,232,199,0.18) 45%, rgba(255,247,232,0.48) 100%)",
         "card-gradient":
-          "linear-gradient(to bottom, rgba(20,20,16,0) 30%, rgba(20,20,16,0.95) 100%)",
+          "linear-gradient(to bottom, rgba(255,255,255,0.08) 0%, rgba(255,241,216,0.55) 55%, rgba(255,229,191,0.92) 100%)",
       },
     },
   },

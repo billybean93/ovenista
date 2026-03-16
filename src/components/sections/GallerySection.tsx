@@ -1,52 +1,60 @@
 import Image from "next/image";
 
-import { SectionLabel } from "@/components/ui/SectionLabel";
-import { cn } from "@/lib/utils";
 import { galleryImages } from "@/lib/restaurant-data";
 
 export default function GallerySection() {
+  const [leadImage, topImage, bottomImage, sideImage] = galleryImages;
+
   return (
-    <section id="gallery" className="section-space">
+    <section id="gallery" className="bg-[#f6edde] py-20 md:py-28">
       <div className="container-shell">
-        <SectionLabel text="Inside Ovenista" className="mb-5" />
-        <h2 className="font-display text-[var(--text-heading)] font-semibold leading-[0.92] tracking-[-0.02em] text-cream drop-shadow-[0_10px_26px_rgba(0,0,0,0.35)]">
-          The Space. The Craft. The Fire.
-        </h2>
-        <div className="hide-scrollbar mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-4 md:hidden">
-          {galleryImages.map((image) => (
-            <div
-              key={image.src}
-              className="relative aspect-[3/4] w-[85vw] shrink-0 snap-center overflow-hidden rounded-[24px]"
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                sizes="85vw"
-                className="object-cover"
-              />
+        <div className="text-center">
+          <h2 className="font-display text-[clamp(38px,5vw,58px)] leading-none text-[#2a1d15]">
+            Inside Our World
+          </h2>
+          <p className="mt-3 text-sm tracking-[0.08em] text-[#b29c7f]">
+            Vibes, murals, and culinary moments.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-3 md:hidden">
+          {[leadImage, topImage, bottomImage, sideImage].map((image) => (
+            <div key={image.src} className="relative aspect-[16/11] overflow-hidden">
+              <Image src={image.src} alt={image.alt} fill sizes="100vw" className="object-cover" />
             </div>
           ))}
         </div>
-        <div className="mt-10 hidden grid-cols-4 gap-2 md:grid md:auto-rows-[220px]">
-          {galleryImages.map((image) => (
-            <div
-              key={image.src}
-              className={cn(
-                "group relative overflow-hidden rounded-[20px]",
-                image.className,
-              )}
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                sizes="(max-width: 1280px) 25vw, 20vw"
-                className="object-cover transition duration-500 group-hover:scale-[1.04]"
-              />
-              <div className="absolute inset-0 bg-gold/0 transition group-hover:bg-gold/10" />
-            </div>
-          ))}
+        <div className="mt-12 hidden md:grid md:grid-cols-[1.55fr_0.78fr_0.97fr] md:gap-3">
+          <div className="relative min-h-[340px] overflow-hidden">
+            <Image
+              src={leadImage.src}
+              alt={leadImage.alt}
+              fill
+              sizes="(max-width: 1280px) 50vw, 42vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="grid gap-3">
+            {[topImage, bottomImage].map((image) => (
+              <div key={image.src} className="relative min-h-[164px] overflow-hidden">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(max-width: 1280px) 24vw, 18vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="relative min-h-[340px] overflow-hidden">
+            <Image
+              src={sideImage.src}
+              alt={sideImage.alt}
+              fill
+              sizes="(max-width: 1280px) 30vw, 24vw"
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>

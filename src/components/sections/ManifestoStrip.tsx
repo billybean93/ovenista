@@ -4,13 +4,13 @@ export default function ManifestoStrip() {
   const marquee = [...manifestoItems, ...manifestoItems].join("  ·  ");
 
   return (
-    <section className="border-y border-[rgba(212,168,83,0.12)] bg-[#11100d] py-10">
-      <div className="container-shell grid gap-8 md:grid-cols-[1fr_1.2fr] md:items-center">
-        <p className="font-display text-4xl italic leading-tight text-cream md:text-5xl">
-          Crafted with passion, baked with soul.
+    <section className="border-y border-[rgba(88,66,43,0.08)] bg-[#f6edde] py-10 md:py-12">
+      <div className="container-shell text-center">
+        <p className="font-display text-[clamp(34px,4.8vw,54px)] italic leading-tight text-[#3b2c1f]">
+          &quot;Crafted with passion, baked with soul&quot;
         </p>
-        <div className="overflow-hidden">
-          <p className="animate-marquee whitespace-nowrap text-lg uppercase tracking-[0.28em] text-gold-muted hover:[animation-play-state:paused]">
+        <div className="mt-5 overflow-hidden border-t border-[rgba(88,66,43,0.08)] pt-4">
+          <p className="animate-marquee whitespace-nowrap text-[12px] uppercase tracking-[0.18em] text-[#c08f44] hover:[animation-play-state:paused]">
             {marquee}
           </p>
         </div>

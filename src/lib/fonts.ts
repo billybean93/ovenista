@@ -1,26 +1,25 @@
-import { Cormorant_Garamond, Cormorant_SC, Jost } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 
-export const cormorant = Cormorant_Garamond({
+export const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+  preload: true,
+});
+
+export const manropeDisplay = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "600"],
   variable: "--font-display",
   display: "swap",
   preload: true,
 });
 
-export const cormorantSC = Cormorant_SC({
+export const manropeAccent = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700"],
   variable: "--font-accent",
   display: "swap",
   preload: false,
-});
-
-export const jost = Jost({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-body",
-  display: "swap",
-  preload: true,
 });

@@ -1,7 +1,5 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-
-import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 
 type DishCardProps = {
   image: string;
@@ -19,30 +17,25 @@ export function DishCard({
   href,
 }: DishCardProps) {
   return (
-    <article className="group relative overflow-hidden rounded-[24px] border border-[color:var(--color-border)] bg-surface shadow-card transition hover:border-[color:var(--color-border-hover)] hover:shadow-glow">
-      <div className="relative aspect-[3/4] overflow-hidden">
-        <Image
-          src={image}
-          alt={name}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-          className="object-cover transition duration-500 group-hover:scale-[1.06]"
-        />
-        <div className="absolute inset-0 bg-card-gradient" />
-      </div>
-      <div className="absolute inset-x-0 bottom-0 space-y-3 p-6">
-        <p className="font-accent text-base uppercase tracking-[0.18em] text-gold">
-          {category}
-        </p>
-        <h3 className="font-display text-3xl text-cream">{name}</h3>
-        <p className="max-w-sm text-base leading-7 text-cream-muted">{description}</p>
-        <Button href={href} variant="ghost" className="px-0 text-gold">
-          <span className="inline-flex items-center gap-2">
-            Explore Menu
-            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-          </span>
-        </Button>
-      </div>
+    <article className="group">
+      <Link href={href} className="block">
+        <div className="relative aspect-[0.86] overflow-hidden border border-[rgba(88,66,43,0.12)] bg-[#ead9c1] shadow-[0_20px_35px_rgba(94,71,47,0.06)]">
+          <Image
+            src={image}
+            alt={name}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            className="object-cover transition duration-500 group-hover:scale-[1.04]"
+          />
+        </div>
+        <div className="px-1 pb-1 pt-5">
+          <h3 className="font-display text-[34px] leading-none text-[#2d2016]">{name}</h3>
+          <p className="mt-3 text-[11px] uppercase tracking-[0.2em] text-[#c08f44]">
+            {category}
+          </p>
+          <p className="mt-3 text-sm leading-6 text-[#7b6752]">{description}</p>
+        </div>
+      </Link>
     </article>
   );
 }

@@ -1,135 +1,65 @@
-"use client";
-
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-
 import { Button } from "@/components/ui/Button";
-import { EmberParticle } from "@/components/ui/EmberParticle";
-import { AnimatedText } from "@/components/ui/AnimatedText";
-import { SectionLabel } from "@/components/ui/SectionLabel";
-import { heroSlides } from "@/lib/restaurant-data";
 
-const embers = [
-  { x: 14, size: 4, delay: 0.2, duration: 4.6 },
-  { x: 24, size: 6, delay: 0.8, duration: 5.2 },
-  { x: 32, size: 4, delay: 1.4, duration: 4.4 },
-  { x: 48, size: 5, delay: 1.1, duration: 5.4 },
-  { x: 58, size: 3, delay: 0.3, duration: 4.8 },
-  { x: 69, size: 5, delay: 1.7, duration: 5.1 },
-  { x: 78, size: 4, delay: 0.5, duration: 4.3 },
-  { x: 88, size: 6, delay: 1.9, duration: 5.7 },
-];
+const heroPosterSrc = "/images/hero/interior-01.svg";
+
+const titleLetters = "OVENISTA".split("");
 
 export default function HeroSection() {
-  const heroType = process.env.NEXT_PUBLIC_HERO_TYPE ?? "slideshow";
-  const [activeSlide, setActiveSlide] = useState(0);
-
-  useEffect(() => {
-    if (heroType !== "slideshow") return;
-
-    const interval = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % heroSlides.length);
-    }, 5000);
-
-    return () => window.clearInterval(interval);
-  }, [heroType]);
-
   return (
-    <section className="relative flex min-h-[100dvh] items-end overflow-hidden">
-      <div className="absolute inset-0">
-        {heroType === "video" ? (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={heroSlides[0].src}
-            className="h-full w-full object-cover"
-          >
-            <source src="/hero-video.mp4" type="video/mp4" />
-          </video>
-        ) : (
-          <div className="relative h-full w-full">
-            {heroSlides.map((slide, index) => (
-              <motion.div
-                key={slide.src}
-                initial={false}
-                animate={{
-                  opacity: index === activeSlide ? 1 : 0,
-                  scale: index === activeSlide ? 1.08 : 1.02,
-                }}
-                transition={{
-                  duration: 6,
-                  ease: "easeOut",
-                }}
-                className="absolute inset-0"
-              >
-                <Image
-                  src={slide.src}
-                  alt={slide.alt}
-                  fill
-                  priority
-                  sizes="100vw"
-                  className="object-cover"
-                />
-              </motion.div>
-            ))}
-          </div>
-        )}
-        <div className="absolute inset-0 bg-hero-gradient" />
-      </div>
-      <div className="container-shell relative z-10 flex min-h-[100dvh] flex-col justify-end pb-20 pt-28">
-        <div className="max-w-5xl">
-          <SectionLabel text="Authentic European Dining" className="mb-6" />
-          <AnimatedText
-            text="OVENISTA"
-            splitBy="letters"
-            className="font-display text-[clamp(108px,19vw,260px)] font-semibold leading-[0.82] tracking-[0.14em] text-cream drop-shadow-[0_16px_40px_rgba(0,0,0,0.62)]"
+    <section className="relative isolate min-h-[100dvh] overflow-hidden bg-[#130c08] pt-14">
+      <div aria-hidden="true" className="absolute inset-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroPosterSrc}
+          preload="metadata"
+          className="hidden h-full w-full object-cover object-center md:block"
+        >
+          <source
+            src="/images/hero/hero-video.mp4"
+            type="video/mp4"
+            media="(min-width: 768px)"
           />
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="mt-6 max-w-3xl font-display text-[clamp(30px,4vw,48px)] italic leading-tight text-gold drop-shadow-[0_10px_28px_rgba(0,0,0,0.45)]"
-          >
-            From Oven With Soul
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.55, duration: 0.8 }}
-            className="mt-10 flex flex-wrap gap-4"
-          >
-            <Button href="/reserve" size="lg" className="shadow-glow">
-              Reserve a Table
-            </Button>
-            <Button href="/menu" variant="outline" size="lg">
-              View Menu
-            </Button>
-          </motion.div>
-          <div className="mt-10 flex gap-3">
-            {heroSlides.map((slide, index) => (
-              <button
-                key={slide.src}
-                type="button"
-                aria-label={`Show hero slide ${index + 1}`}
-                onClick={() => setActiveSlide(index)}
-                className={`h-2.5 rounded-full transition ${index === activeSlide ? "w-14 bg-gold" : "w-8 bg-cream/25 hover:bg-cream/45"}`}
-              />
+        </video>
+        <div
+          className="block h-full w-full bg-cover bg-center md:hidden"
+          style={{ backgroundImage: `url('${heroPosterSrc}')` }}
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,10,7,0.2)_0%,rgba(22,15,10,0.4)_42%,rgba(20,13,9,0.72)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_36%,rgba(255,255,255,0.08),transparent_22%),radial-gradient(circle_at_50%_100%,rgba(7,5,4,0.48),transparent_28%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-[22%] bg-[radial-gradient(circle_at_12%_100%,rgba(232,91,59,0.3),transparent_10%),radial-gradient(circle_at_24%_100%,rgba(230,185,61,0.28),transparent_12%),radial-gradient(circle_at_38%_100%,rgba(232,91,59,0.24),transparent_11%),radial-gradient(circle_at_57%_100%,rgba(230,185,61,0.28),transparent_9%),radial-gradient(circle_at_69%_100%,rgba(232,91,59,0.28),transparent_12%),radial-gradient(circle_at_84%_100%,rgba(230,185,61,0.26),transparent_10%)]" />
+      </div>
+
+      <div className="container-shell relative z-10 flex min-h-[calc(100dvh-56px)] flex-col items-center justify-center pb-12 pt-12 text-center">
+        <div className="flex max-w-4xl flex-col items-center">
+          <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.4em] text-[#e6c164]">
+            European Craft Kitchen
+          </p>
+          <h1 className="flex flex-nowrap whitespace-nowrap font-display text-[clamp(58px,12vw,108px)] font-medium leading-[0.88] tracking-[0.03em] text-white drop-shadow-[0_18px_40px_rgba(0,0,0,0.38)]">
+            {titleLetters.map((letter, index) => (
+              <span
+                key={`${letter}-${index}`}
+                className="inline-block animate-[fadeUp_0.7s_var(--ease-reveal)_both]"
+                style={{ animationDelay: `${0.08 + index * 0.035}s` }}
+              >
+                {letter}
+              </span>
             ))}
+          </h1>
+          <p className="mt-3 animate-[fadeUp_0.8s_var(--ease-reveal)_both] font-display text-[clamp(28px,4vw,46px)] italic leading-tight text-[#fff5e8] [animation-delay:0.42s]">
+            From Oven With Soul
+          </p>
+          <div className="mt-9 animate-[fadeUp_0.8s_var(--ease-reveal)_both] [animation-delay:0.55s]">
+            <Button
+              href="/menu"
+              variant="outline"
+              className="min-h-0 rounded-none border-white/80 bg-[rgba(20,14,10,0.2)] px-7 py-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-sm hover:bg-[rgba(255,255,255,0.12)]"
+            >
+              Explore Our Menu
+            </Button>
           </div>
-        </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[30%]">
-          {embers.map((ember) => (
-            <EmberParticle key={ember.x} {...ember} />
-          ))}
-        </div>
-        <div className="mt-16 flex flex-col items-center gap-2 self-center text-base uppercase tracking-[0.24em] text-cream-muted">
-          <span>scroll</span>
-          <span className="h-12 w-px animate-pulse bg-gradient-to-b from-gold to-transparent" />
         </div>
       </div>
     </section>
