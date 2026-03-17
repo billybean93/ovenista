@@ -1,7 +1,7 @@
 import type { Dish, MenuCategory, NavLink, Review } from "@/types";
 
 export const navLinks: NavLink[] = [
-  { href: "/menu", label: "Menu" },
+  { href: "/menu.pdf", label: "Menu" },
   { href: "/#our-story", label: "Our Story" },
   { href: "/#gallery", label: "Gallery" },
   { href: "/#location", label: "Location" },

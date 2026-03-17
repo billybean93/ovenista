@@ -11,7 +11,7 @@ import { navLinks } from "@/lib/restaurant-data";
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const closeDrawer = useCallback(() => setOpen(false), []);
-  const leftLinks = navLinks.filter((link) => link.href === "/#our-story" || link.href === "/menu");
+  const leftLinks = navLinks.filter((link) => link.label === "Our Story" || link.label === "Menu");
   const rightLinks = navLinks.filter((link) => link.href === "/#gallery");
 
   return (
