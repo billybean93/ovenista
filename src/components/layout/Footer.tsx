@@ -1,56 +1,47 @@
-import Link from "next/link";
+import Image from "next/image";
 
-import { navLinks } from "@/lib/restaurant-data";
 import { restaurantContact } from "@/lib/metadata";
 
 export function Footer() {
+  const mapQuery = encodeURIComponent(restaurantContact.address);
+
   return (
-    <footer className="bg-[#3b2c21] text-[#e8dcc8]">
-      <div className="container-shell grid gap-12 py-16 md:grid-cols-[1.2fr_0.8fr_1.1fr]">
-        <div className="space-y-5">
-          <p className="font-display text-4xl text-[#fff6e8]">OVENISTA</p>
-          <div className="space-y-2 text-sm leading-7 text-[#cdbba2]">
-            <p>{restaurantContact.address}</p>
-            <p>{restaurantContact.phone}</p>
-            <p>Open daily 11:00 - 22:00</p>
-          </div>
-        </div>
-        <div>
-          <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#b69a71]">
-            Navigate
-          </p>
-          <div className="space-y-3">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="block text-sm text-[#d7c8b1] transition hover:text-white">
-                {link.label}
-              </Link>
-            ))}
-            <Link href="/reserve" className="block text-sm text-[#d7c8b1] transition hover:text-white">
-              Careers
-            </Link>
-          </div>
-        </div>
-        <div>
-          <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#b69a71]">
-            Subscribe for seasonal specials.
-          </p>
-          <div className="flex max-w-sm overflow-hidden border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.04)]">
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="min-h-11 flex-1 bg-transparent px-4 text-sm text-[#f2e8d8] outline-none placeholder:text-[#a58f72]"
+    <footer className="bg-[#e2d2b6] text-[#4a3a2c]">
+      <div className="container-shell py-14 md:py-16">
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
+          <div className="space-y-5">
+            <Image
+              src="/images/hero/logo.png"
+              alt="Ovenista"
+              width={220}
+              height={80}
+              className="h-auto w-[180px]"
             />
-            <button
-              type="button"
-              className="bg-[#d8aa38] px-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#2d2119]"
-            >
-              Go
-            </button>
+            <div className="space-y-1 text-sm leading-7 text-[#6f5b46]">
+              <p>{restaurantContact.address}</p>
+              <p>{restaurantContact.phone}</p>
+              <p>{restaurantContact.email}</p>
+              <p>Open daily 11:00 - 22:00</p>
+            </div>
           </div>
-          <p className="mt-5 text-sm text-[#a58f72]">{restaurantContact.email}</p>
+
+          <div>
+            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8f744e]">
+              Find us
+            </p>
+            <div className="overflow-hidden border border-[rgba(74,58,44,0.18)] bg-[rgba(255,255,255,0.28)] shadow-[0_12px_32px_rgba(84,63,36,0.12)]">
+              <iframe
+                title="Ovenista location map"
+                src={`https://maps.google.com/maps?q=${mapQuery}&z=15&output=embed`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-[280px] w-full md:h-[360px]"
+              />
+            </div>
+          </div>
         </div>
       </div>
-      <div className="container-shell border-t border-[rgba(255,255,255,0.08)] py-5 text-center text-[11px] uppercase tracking-[0.18em] text-[#8e785e]">
+      <div className="container-shell border-t border-[rgba(74,58,44,0.14)] py-5 text-center text-[11px] uppercase tracking-[0.18em] text-[#7b664f]">
         © 2026 Ovenista. Handcrafted for convivial evenings.
       </div>
     </footer>
