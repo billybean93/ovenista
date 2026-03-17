@@ -24,7 +24,7 @@ export default function OurStory() {
           <h2 className="mt-6 max-w-md font-display text-[clamp(46px,5vw,72px)] leading-[0.92] text-[#fff6e8]">
             We put a soul in every dish.
           </h2>
-          <div className="mt-8 space-y-5 text-base leading-8 text-[#d9c6aa]">
+          <div className="mt-8 space-y-5 text-lg leading-8 text-[#d9c6aa]">
             <p>
               Ovenista is a new, small restaurant with an innovative spirit,
               inspired by the flavors and traditions of European cuisine. Every

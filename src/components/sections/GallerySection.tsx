@@ -13,7 +13,7 @@ export default function GallerySection() {
           <h2 className="font-display text-[clamp(38px,5vw,58px)] leading-none text-[#2a1d15]">
             Inside Our World
           </h2>
-          <p className="mt-3 text-sm tracking-[0.08em] text-[#b29c7f]">
+          <p className="mt-3 text-xl tracking-[0.08em] text-[#b29c7f]">
             Vibes, murals, and culinary moments.
           </p>
         </div>

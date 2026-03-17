@@ -30,10 +30,10 @@ export function DishCard({
         </div>
         <div className="px-1 pb-1 pt-5">
           <h3 className="font-display text-[34px] leading-none text-[#2d2016]">{name}</h3>
-          <p className="mt-3 text-[11px] uppercase tracking-[0.2em] text-[#c08f44]">
+          <p className="mt-3 text-[15px] uppercase tracking-[0.2em] text-[#c08f44]">
             {category}
           </p>
-          <p className="mt-3 text-sm leading-6 text-[#7b6752]">{description}</p>
+          <p className="mt-3 text-m leading-6 text-[#7b6752]">{description}</p>
         </div>
       </Link>
     </article>
