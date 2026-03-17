@@ -37,28 +37,28 @@ export const manifestoItems = [
 
 export const featuredDishes: Dish[] = [
   {
-    image: "/images/food/pizza-01.svg",
+    image: "/images/food/margherita.jpg",
     category: "Wood-Fired Pizza",
     name: "Margherita della Casa",
     description: "Blistered crust, ancient dough, and bright basil heat.",
     href: "/menu#pizza",
   },
   {
-    image: "/images/food/pasta-01.svg",
-    category: "Handmade Pasta",
-    name: "Tagliatelle al Mattino",
-    description: "Pulled by hand each morning, finished in velvet sauce.",
+    image: "/images/food/bbq-chicken.jpg",
+    category: "6-hour Sous-vide, Smoked",
+    name: "Smoked BBQ Chicken",
+    description: "Boneless, BBQ spices, served with honey mustard lemon dressing",
     href: "/menu#pasta",
   },
   {
-    image: "/images/food/smoked-01.svg",
+    image: "/images/food/brisket.webp",
     category: "Long-Smoked",
     name: "Oak & Ember Brisket",
     description: "Low fire. Long patience. Pure flavour.",
     href: "/menu#long-smoked",
   },
   {
-    image: "/images/food/chef-selection.svg",
+    image: "/images/food/seabass.jpg",
     category: "Chef's Selection",
     name: "Today from the Oven",
     description: "Whatever the oven is feeling today.",
@@ -67,35 +67,50 @@ export const featuredDishes: Dish[] = [
 ];
 
 export const storyImage = {
-  src: "/images/interior/brick-wall.svg",
+  src: "/images/interior/red.webp",
   alt: "Ovenista interior with exposed brick and dark wood tables",
 };
 
 export const galleryImages = [
   {
-    src: "/images/hero/interior-01.svg",
+    src: "/images/interior/red.webp",
     alt: "Interior full shot of Ovenista",
     className: "md:col-span-2 md:row-span-2",
   },
   {
-    src: "/images/food/pizza-01.svg",
+    src: "/images/interior/cook2.jpg",
     alt: "Close-up of a pizza from Ovenista",
     className: "",
   },
   {
-    src: "/images/interior/mural-detail.svg",
+    src: "/images/interior/outside.webp",
     alt: "Venetian mural detail at Ovenista",
     className: "",
   },
   {
-    src: "/images/interior/oven-closeup.svg",
+    src: "/images/interior/cook.jpg",
     alt: "Oven dome close-up at Ovenista",
     className: "md:col-span-2",
   },
   {
-    src: "/images/food/hands-on-pasta.svg",
+    src: "/images/interior/cook-cut.jpg",
     alt: "Hands shaping pasta dough",
     className: "md:row-span-2",
+  },
+  {
+    src: "/images/interior/up.jpg",
+    alt: "Warm dining area viewed from the mezzanine",
+    className: "",
+  },
+  {
+    src: "/images/food/close-up-pizza.jpg",
+    alt: "Brick wall textures and warm Ovenista lighting",
+    className: "",
+  },
+  {
+    src: "/images/food/carbon.webp",
+    alt: "Wood-fired oven detail with glowing embers",
+    className: "md:col-span-2",
   },
 ];
 

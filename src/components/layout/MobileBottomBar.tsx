@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MenuSquare, Phone, UtensilsCrossed } from "lucide-react";
 
 import { restaurantContact } from "@/lib/metadata";
@@ -13,17 +14,17 @@ export function MobileBottomBar() {
           <Phone className="h-4 w-4 text-ember" />
           Call
         </a>
-        <a
+        <Link
           href="/reserve"
           className="flex min-h-14 items-center justify-center gap-2 text-base text-ember"
         >
           <UtensilsCrossed className="h-4 w-4" />
           Reserve
-        </a>
-        <a href="/menu" className="flex min-h-14 items-center justify-center gap-2 text-base text-cream">
+        </Link>
+        <Link href="/menu" className="flex min-h-14 items-center justify-center gap-2 text-base text-cream">
           <MenuSquare className="h-4 w-4 text-forest" />
           Menu
-        </a>
+        </Link>
       </div>
     </div>
   );

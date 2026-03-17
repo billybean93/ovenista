@@ -1,3 +1,5 @@
+import Script from "next/script";
+
 import { Button } from "@/components/ui/Button";
 
 const heroPosterSrc = "/images/hero/interior-01.svg";
@@ -7,15 +9,36 @@ const titleLetters = "OVENISTA".split("");
 export default function HeroSection() {
   return (
     <section className="relative isolate min-h-[100dvh] overflow-hidden bg-[#130c08] pt-14">
+      <Script id="hero-video-resume" strategy="afterInteractive">
+        {`
+          (() => {
+            const ensurePlaying = () => {
+              const video = document.getElementById("hero-video");
+              if (!(video instanceof HTMLVideoElement)) return;
+              const playPromise = video.play();
+              if (playPromise) {
+                playPromise.catch(() => {});
+              }
+            };
+
+            ensurePlaying();
+            window.addEventListener("pageshow", ensurePlaying);
+            document.addEventListener("visibilitychange", () => {
+              if (document.visibilityState === "visible") ensurePlaying();
+            });
+          })();
+        `}
+      </Script>
       <div aria-hidden="true" className="absolute inset-0">
         <video
+          id="hero-video"
           autoPlay
           muted
           loop
           playsInline
           src="/images/hero/hero-video.mp4"
           poster={heroPosterSrc}
-          preload="metadata"
+          preload="none"
           className="h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,10,7,0.2)_0%,rgba(22,15,10,0.4)_42%,rgba(20,13,9,0.72)_100%)]" />
@@ -25,7 +48,7 @@ export default function HeroSection() {
 
       <div className="container-shell relative z-10 flex min-h-[calc(100dvh-56px)] flex-col items-center justify-center pb-12 pt-12 text-center">
         <div className="flex max-w-4xl flex-col items-center">
-          <p className="mb-5 text-[20px] font-semibold uppercase tracking-[0.4em] text-[#e6c164]">
+          <p className="mb-5 text-[15px] font-semibold uppercase tracking-[0.4em] text-[#e6c164]">
             European Craft Kitchen
           </p>
           <h1 className="flex flex-nowrap whitespace-nowrap font-display text-[clamp(58px,12vw,108px)] font-medium leading-[0.88] tracking-[0.03em] text-white drop-shadow-[0_18px_40px_rgba(0,0,0,0.38)]">
@@ -44,7 +67,7 @@ export default function HeroSection() {
           </p>
           <div className="mt-9 animate-[fadeUp_0.8s_var(--ease-reveal)_both] [animation-delay:0.55s]">
             <Button
-              href="/menu"
+              href="/menu.pdf"
               variant="outline"
               className="min-h-0 rounded-none border-white/80 bg-[rgba(20,14,10,0.2)] px-7 py-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-sm hover:bg-[rgba(255,255,255,0.12)]"
             >

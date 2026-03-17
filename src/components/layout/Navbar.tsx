@@ -57,7 +57,7 @@ export function Navbar() {
             ))}
             <Link
               href="/reserve"
-              className="inline-flex h-9 items-center bg-[#d66a3f] px-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[#c65b33]"
+              className="inline-flex h-9 items-center bg-[#d66a3f] px-4 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[#c65b33]"
             >
               Book Table
             </Link>
