@@ -5,7 +5,7 @@ import { defaultLocale, locales, localizeHref, type Locale } from "@/lib/i18n";
 export const siteUrl = "https://ovenista.com";
 
 export const restaurantContact = {
-  phone: process.env.NEXT_PUBLIC_PHONE ?? "+84 0392 404 247",
+  phone: process.env.NEXT_PUBLIC_PHONE ?? "+84 392 404 247",
   address: process.env.NEXT_PUBLIC_ADDRESS ?? "15 Nội Khu Hưng Gia 3, Phú Mỹ Hưng, Q7",
   email: process.env.NEXT_PUBLIC_EMAIL ?? "ovenista.ltd@gmail.com",
   instagram: process.env.NEXT_PUBLIC_INSTAGRAM ?? "https://www.instagram.com/ovenista.ltd/",
