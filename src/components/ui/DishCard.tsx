@@ -1,12 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { localizeHref, type Locale } from "@/lib/i18n";
+
 type DishCardProps = {
   image: string;
   category: string;
   name: string;
   description: string;
   href: string;
+  locale: Locale;
 };
 
 export function DishCard({
@@ -15,10 +18,11 @@ export function DishCard({
   name,
   description,
   href,
+  locale,
 }: DishCardProps) {
   return (
     <article className="group">
-      <Link href={href} className="block">
+      <Link href={localizeHref(href, locale)} className="block">
         <div className="relative aspect-[0.86] overflow-hidden border border-[rgba(88,66,43,0.12)] bg-[#ead9c1] shadow-[0_20px_35px_rgba(94,71,47,0.06)]">
           <Image
             src={image}

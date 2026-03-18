@@ -2,11 +2,13 @@
 
 import { Clock3, MapPin, Phone } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { hours } from "@/lib/restaurant-data";
+import { defaultLocale, getDictionary, getLocaleFromPathname } from "@/lib/i18n";
 import { restaurantContact } from "@/lib/metadata";
+import { getHours } from "@/lib/restaurant-data";
 
 function getEmbedUrl() {
   const embedId = process.env.NEXT_PUBLIC_MAPS_EMBED_ID;
@@ -15,6 +17,10 @@ function getEmbedUrl() {
 }
 
 export default function LocationSection() {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname) ?? defaultLocale;
+  const dictionary = getDictionary(locale);
+  const hours = getHours(locale);
   const ref = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
   const embedUrl = useMemo(() => getEmbedUrl(), []);
@@ -34,7 +40,7 @@ export default function LocationSection() {
   return (
     <section id="location" className="section-space">
       <div className="container-shell">
-        <SectionLabel text="Find Us" className="mb-5" />
+        <SectionLabel text={dictionary.location.label} className="mb-5" />
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div
             ref={ref}
@@ -52,7 +58,7 @@ export default function LocationSection() {
               />
             ) : (
               <div className="flex h-full min-h-[320px] items-center justify-center bg-[radial-gradient(circle_at_center,rgba(232,91,59,0.12),transparent_55%)] px-6 text-center text-cream-muted">
-                Add `NEXT_PUBLIC_MAPS_EMBED_ID` in `.env.local` to enable the live map.
+                {dictionary.location.mapFallback}
               </div>
             )}
           </div>
@@ -62,14 +68,14 @@ export default function LocationSection() {
               <div className="flex gap-4">
                 <MapPin className="mt-1 h-5 w-5 text-ember" />
                 <div>
-                  <p className="font-accent text-base uppercase tracking-[0.12em] text-gold-muted">Address</p>
+                  <p className="font-accent text-base uppercase tracking-[0.12em] text-gold-muted">{dictionary.location.address}</p>
                   <p className="mt-2 text-cream-muted">{restaurantContact.address}</p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <Clock3 className="mt-1 h-5 w-5 text-ember" />
                 <div>
-                  <p className="font-accent text-base uppercase tracking-[0.12em] text-gold-muted">Hours</p>
+                  <p className="font-accent text-base uppercase tracking-[0.12em] text-gold-muted">{dictionary.location.hours}</p>
                   {hours.map((item) => (
                     <p key={item.day} className="mt-2 text-cream-muted">
                       {item.day}: {item.time}
@@ -80,18 +86,18 @@ export default function LocationSection() {
               <div className="flex gap-4">
                 <Phone className="mt-1 h-5 w-5 text-ember" />
                 <div>
-                  <p className="font-accent text-base uppercase tracking-[0.12em] text-gold-muted">Phone</p>
+                  <p className="font-accent text-base uppercase tracking-[0.12em] text-gold-muted">{dictionary.location.phone}</p>
                   <p className="mt-2 text-cream-muted">{restaurantContact.phone}</p>
                 </div>
               </div>
               <p className="font-accent text-base uppercase tracking-[0.12em] text-gold-muted">
-                Dine-in · Takeaway
+                {dictionary.location.serviceModes}
               </p>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="#location">Get Directions</Button>
+              <Button href="#location">{dictionary.common.getDirections}</Button>
               <Button href={`tel:${restaurantContact.phone}`} variant="outline">
-                Call Now
+                {dictionary.common.callNow}
               </Button>
             </div>
           </div>

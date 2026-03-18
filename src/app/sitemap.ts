@@ -1,32 +1,23 @@
 import type { MetadataRoute } from "next";
 
+import { locales, localizeHref } from "@/lib/i18n";
+import { siteUrl } from "@/lib/metadata";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
+  const routes = ["/", "/menu", "/about"] as const;
+  const priorities: Record<(typeof routes)[number], number> = {
+    "/": 1,
+    "/menu": 0.9,
+    "/about": 0.7,
+  };
 
-  return [
-    {
-      url: "https://ovenista.com",
+  return locales.flatMap((locale) =>
+    routes.map((route) => ({
+      url: `${siteUrl}${localizeHref(route, locale)}`,
       lastModified,
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: "https://ovenista.com/menu",
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: "https://ovenista.com/reserve",
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: "https://ovenista.com/about",
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-  ];
+      changeFrequency: route === "/menu" ? "weekly" : "monthly",
+      priority: priorities[route],
+    })),
+  );
 }

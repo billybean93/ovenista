@@ -1,12 +1,15 @@
 import Script from "next/script";
 
 import { Button } from "@/components/ui/Button";
+import { getDictionary, localizeHref, type Locale } from "@/lib/i18n";
 
 const heroPosterSrc = "/images/hero/interior-01.svg";
 
 const titleLetters = "OVENISTA".split("");
 
-export default function HeroSection() {
+export default function HeroSection({ locale }: { locale: Locale }) {
+  const dictionary = getDictionary(locale);
+
   return (
     <section className="relative isolate min-h-[100dvh] overflow-hidden bg-[#130c08] pt-14">
       <Script id="hero-video-resume" strategy="afterInteractive">
@@ -49,7 +52,7 @@ export default function HeroSection() {
       <div className="container-shell relative z-10 flex min-h-[calc(100dvh-56px)] flex-col items-center justify-center pb-12 pt-12 text-center">
         <div className="flex max-w-4xl flex-col items-center">
           <p className="mb-5 text-[15px] font-semibold uppercase tracking-[0.4em] text-[#e6c164]">
-            European Craft Kitchen
+            {dictionary.hero.eyebrow}
           </p>
           <h1 className="flex flex-nowrap whitespace-nowrap font-display text-[clamp(58px,12vw,108px)] font-medium leading-[0.88] tracking-[0.03em] text-white drop-shadow-[0_18px_40px_rgba(0,0,0,0.38)]">
             {titleLetters.map((letter, index) => (
@@ -63,15 +66,24 @@ export default function HeroSection() {
             ))}
           </h1>
           <p className="mt-3 animate-[fadeUp_0.8s_var(--ease-reveal)_both] font-display text-[clamp(28px,4vw,46px)] italic leading-tight text-[#fff5e8] [animation-delay:0.42s]">
-            From Oven With Soul
+            {dictionary.hero.tagline}
           </p>
-          <div className="mt-9 animate-[fadeUp_0.8s_var(--ease-reveal)_both] [animation-delay:0.55s]">
+          <div className="mt-9 flex flex-wrap justify-center gap-3 animate-[fadeUp_0.8s_var(--ease-reveal)_both] [animation-delay:0.55s]">
+            <Button
+              href={localizeHref("/menu", locale)}
+              variant="primary"
+              className="min-h-0 rounded-none border-[#d66a3f] bg-[#d66a3f] px-7 py-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-white hover:bg-[#c65b33]"
+            >
+              {dictionary.hero.cta}
+            </Button>
             <Button
               href="/menu.pdf"
+              target="_blank"
+              rel="noreferrer"
               variant="outline"
               className="min-h-0 rounded-none border-white/80 bg-[rgba(20,14,10,0.2)] px-7 py-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-sm hover:bg-[rgba(255,255,255,0.12)]"
             >
-              Explore Our Menu
+              {dictionary.hero.pdfCta}
             </Button>
           </div>
         </div>

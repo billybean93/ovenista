@@ -1,8 +1,11 @@
 import Image from "next/image";
 
-import { galleryImages } from "@/lib/restaurant-data";
+import { getDictionary, type Locale } from "@/lib/i18n";
+import { getGalleryImages } from "@/lib/restaurant-data";
 
-export default function GallerySection() {
+export default function GallerySection({ locale }: { locale: Locale }) {
+  const dictionary = getDictionary(locale);
+  const galleryImages = getGalleryImages(locale);
   const mobileImages = galleryImages.slice(0, 4);
   const extraMobileImages = galleryImages.slice(4);
 
@@ -11,10 +14,10 @@ export default function GallerySection() {
       <div className="container-shell">
         <div className="text-center">
           <h2 className="font-display text-[clamp(38px,5vw,58px)] leading-none text-[#2a1d15]">
-            Inside Our World
+            {dictionary.gallery.title}
           </h2>
           <p className="mt-3 text-xl tracking-[0.08em] text-[#b29c7f]">
-            Vibes, murals, and culinary moments.
+            {dictionary.gallery.subtitle}
           </p>
         </div>
         <div className="mt-12 grid grid-cols-2 gap-2 md:hidden">
@@ -36,8 +39,8 @@ export default function GallerySection() {
         {extraMobileImages.length > 0 ? (
           <details className="group mt-4 md:hidden">
             <summary className="mx-auto w-fit list-none rounded-full border border-[#c9b295] px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#7a6248] transition hover:border-[#b29878] hover:text-[#4d3928]">
-              <span className="group-open:hidden">View more photos</span>
-              <span className="hidden group-open:inline">Show fewer photos</span>
+              <span className="group-open:hidden">{dictionary.gallery.viewMore}</span>
+              <span className="hidden group-open:inline">{dictionary.gallery.showFewer}</span>
             </summary>
             <div className="mt-2 grid grid-cols-2 gap-2">
               {extraMobileImages.map((image, index) => (

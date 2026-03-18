@@ -3,16 +3,24 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useCallback, useState } from "react";
 
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { MobileDrawer } from "@/components/layout/MobileDrawer";
+import { defaultLocale, getDictionary, getLocaleFromPathname, localizeHref } from "@/lib/i18n";
 import { navLinks } from "@/lib/restaurant-data";
 
 export function Navbar() {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname) ?? defaultLocale;
+  const labels = getDictionary(locale);
   const [open, setOpen] = useState(false);
-  const closeDrawer = useCallback(() => setOpen(false), []);
-  const leftLinks = navLinks.filter((link) => link.label === "Our Story" || link.label === "Menu");
-  const rightLinks = navLinks.filter((link) => link.href === "/#gallery");
+  const closeDrawer = useCallback(() => {
+    setOpen(false);
+  }, [setOpen]);
+  const leftLinks = navLinks.filter((link) => link.key === "ourStory" || link.key === "menu");
+  const rightLinks = navLinks.filter((link) => link.key === "gallery");
 
   return (
     <>
@@ -22,15 +30,15 @@ export function Navbar() {
             {leftLinks.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                href={localizeHref(link.href, locale)}
                 className="text-[20px] uppercase tracking-[0.22em] text-[#4e3d2b] transition hover:text-[#d66a3f]"
               >
-                {link.label}
+                {labels.nav[link.key]}
               </Link>
             ))}
           </nav>
           <Link
-            href="/"
+            href={localizeHref("/", locale)}
             className="justify-self-center"
             aria-label="Ovenista home"
           >
@@ -49,26 +57,30 @@ export function Navbar() {
             {rightLinks.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                href={localizeHref(link.href, locale)}
                 className="text-[20px] uppercase tracking-[0.22em] text-[#4e3d2b] transition hover:text-[#d66a3f]"
               >
-                {link.label}
+                {labels.nav[link.key]}
               </Link>
             ))}
+            <LanguageSwitcher />
             <Link
-              href="/reserve"
+              href={localizeHref("/#contact", locale)}
               className="inline-flex h-9 items-center bg-[#d66a3f] px-4 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[#c65b33]"
             >
-              Book Table
+              {labels.common.contactUs}
             </Link>
           </div>
-          <button
-            className="justify-self-end md:hidden"
-            aria-label="Open menu"
-            onClick={() => setOpen(true)}
-          >
-            <Menu className="h-6 w-6 text-[#25180f]" />
-          </button>
+          <div className="flex items-center justify-self-end gap-2 md:hidden">
+            <LanguageSwitcher compact tight className="bg-white/70" />
+            <button
+              className="inline-flex h-10 w-10 items-center justify-center"
+              aria-label={labels.common.openMenu}
+              onClick={() => setOpen(true)}
+            >
+              <Menu className="h-6 w-6 text-[#25180f]" />
+            </button>
+          </div>
         </div>
       </header>
       <MobileDrawer open={open} onClose={closeDrawer} />

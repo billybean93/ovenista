@@ -1,14 +1,21 @@
-import Image from "next/image";
+"use client";
 
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+
+import { defaultLocale, getDictionary, getLocaleFromPathname } from "@/lib/i18n";
 import { restaurantContact } from "@/lib/metadata";
 
 export function Footer() {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname) ?? defaultLocale;
+  const dictionary = getDictionary(locale);
   const mapQuery = encodeURIComponent(restaurantContact.address);
 
   return (
-    <footer className="bg-[#e2d2b6] text-[#4a3a2c]">
+    <footer id="contact" className="bg-[#e2d2b6] text-[#4a3a2c]">
       <div className="container-shell py-14 md:py-16">
-        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
+        <div className="grid gap-10 lg:grid-cols-[0.75fr_0.8fr_1.05fr] lg:gap-12">
           <div className="space-y-5">
             <Image
               src="/images/hero/logo.png"
@@ -18,20 +25,45 @@ export function Footer() {
               className="h-auto w-[180px]"
             />
             <div className="space-y-1 text-sm leading-7 text-[#6f5b46]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8f744e]">
+                {dictionary.footer.addressTitle}
+              </p>
               <p>{restaurantContact.address}</p>
-              <p>{restaurantContact.phone}</p>
               <p>{restaurantContact.email}</p>
-              <p>Open daily 11:00 - 22:00</p>
+              <p>{dictionary.footer.openDaily}</p>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8f744e]">
+              {dictionary.footer.contactTitle}
+            </p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8f744e]">
+              {dictionary.footer.socialTitle}
+            </p>
+            <div className="space-y-3 text-sm leading-7 text-[#6f5b46]">
+              <a href={`tel:${restaurantContact.phone}`} className="block hover:text-[#d66a3f]">
+                {dictionary.common.hotline}: {restaurantContact.phone}
+              </a>
+              <a href={restaurantContact.instagram} target="_blank" rel="noreferrer" className="block hover:text-[#d66a3f]">
+                {dictionary.common.instagram}
+              </a>
+              <a href={restaurantContact.facebook} target="_blank" rel="noreferrer" className="block hover:text-[#d66a3f]">
+                {dictionary.common.facebook}
+              </a>
+              <a href={restaurantContact.zalo} target="_blank" rel="noreferrer" className="block hover:text-[#d66a3f]">
+                {dictionary.common.zalo}
+              </a>
             </div>
           </div>
 
           <div>
             <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8f744e]">
-              Find us
+              {dictionary.footer.findUs}
             </p>
             <div className="overflow-hidden border border-[rgba(74,58,44,0.18)] bg-[rgba(255,255,255,0.28)] shadow-[0_12px_32px_rgba(84,63,36,0.12)]">
               <iframe
-                title="Ovenista location map"
+                title={dictionary.footer.mapTitle}
                 src={`https://maps.google.com/maps?q=${mapQuery}&z=15&output=embed`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -42,7 +74,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container-shell border-t border-[rgba(74,58,44,0.14)] py-5 text-center text-[11px] uppercase tracking-[0.18em] text-[#7b664f]">
-        © 2026 Ovenista. Handcrafted for convivial evenings.
+        {dictionary.footer.copyright}
       </div>
     </footer>
   );

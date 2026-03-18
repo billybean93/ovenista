@@ -35,6 +35,8 @@ type ButtonProps = VariantProps<typeof buttonVariants> & {
   onClick?: () => void;
   className?: string;
   type?: "button" | "submit" | "reset";
+  target?: string;
+  rel?: string;
 };
 
 export function Button({
@@ -45,12 +47,14 @@ export function Button({
   variant,
   size,
   type = "button",
+  target,
+  rel,
 }: ButtonProps) {
   const classes = cn(buttonVariants({ variant, size }), className);
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} target={target} rel={rel}>
         {children}
       </Link>
     );

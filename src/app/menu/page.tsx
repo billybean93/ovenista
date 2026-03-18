@@ -2,32 +2,53 @@ import type { Metadata } from "next";
 
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { menuCategories } from "@/lib/restaurant-data";
+import { defaultLocale, getDictionary, localizeHref, type Locale } from "@/lib/i18n";
+import { getPageMetadata } from "@/lib/metadata";
+import { getMenuCategories } from "@/lib/restaurant-data";
 
-export const metadata: Metadata = {
-  title: "Menu",
-  description:
-    "Explore Ovenista's full menu: wood-fired pizza, handmade pasta, long-smoked specialties and more.",
-};
+export function buildMenuMetadata(locale: Locale): Metadata {
+  const dictionary = getDictionary(locale);
 
-export default function MenuPage() {
+  return getPageMetadata({
+    locale,
+    pathname: "/menu",
+    title: dictionary.pages.menu.title,
+    description: dictionary.pages.menu.description,
+  });
+}
+
+export const metadata = buildMenuMetadata(defaultLocale);
+
+export function MenuPageContent({ locale }: { locale: Locale }) {
+  const dictionary = getDictionary(locale);
+  const menuCategories = getMenuCategories(locale);
+
   return (
     <div className="pb-24 pt-32">
       <div className="container-shell">
-        <SectionLabel text="Our Menu" className="mb-5" />
+        <SectionLabel text={dictionary.pages.menu.label} className="mb-5" />
         <h1 className="max-w-4xl font-display text-[var(--text-display)] font-semibold leading-[0.94] tracking-[-0.01em] text-cream">
-          Wood-Fired Comfort, Handmade Detail, Slow-Smoked Depth.
+          {dictionary.pages.menu.heading}
         </h1>
-        <div className="sticky top-20 z-20 mt-8 flex flex-wrap gap-3 rounded-full border border-[color:var(--color-border)] bg-[rgba(255,247,232,0.9)] p-3 backdrop-blur-xl">
-          {menuCategories.map((category) => (
-            <a
-              key={category.id}
-              href={`#${category.id}`}
-              className="rounded-full border border-transparent px-4 py-2 text-base uppercase tracking-[0.12em] text-cream-muted hover:border-[color:var(--color-border)] hover:text-ember"
-            >
-              {category.label}
-            </a>
-          ))}
+        <p className="mt-4 max-w-2xl text-cream-muted">{dictionary.pages.menu.subheading}</p>
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Button href="/menu.pdf" target="_blank" rel="noreferrer" variant="outline">
+            {dictionary.pages.menu.pdfCta}
+          </Button>
+          <p className="self-center text-sm text-cream-muted">{dictionary.pages.menu.pdfNote}</p>
+        </div>
+        <div className="mt-8 md:sticky md:top-20 md:z-20">
+          <div className="hide-scrollbar flex gap-3 overflow-x-auto rounded-full border border-[color:var(--color-border)] bg-[rgba(255,247,232,0.9)] p-3 backdrop-blur-xl md:flex-wrap md:overflow-visible">
+            {menuCategories.map((category) => (
+              <a
+                key={category.id}
+                href={`#${category.id}`}
+                className="shrink-0 rounded-full border border-transparent px-4 py-2 text-base uppercase tracking-[0.12em] text-cream-muted hover:border-[color:var(--color-border)] hover:text-ember"
+              >
+                {category.label}
+              </a>
+            ))}
+          </div>
         </div>
         <div className="mt-12 space-y-16">
           {menuCategories.map((category) => (
@@ -40,7 +61,7 @@ export default function MenuPage() {
                     key={item.name}
                     className="luxury-panel rounded-[24px] border border-[color:var(--color-border)] p-6"
                   >
-                    <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                    <div className="flex flex-col gap-4">
                       <div>
                         <p className="font-accent text-base uppercase tracking-[0.12em] text-gold-muted">
                           {item.category}
@@ -60,9 +81,6 @@ export default function MenuPage() {
                           </div>
                         ) : null}
                       </div>
-                      <div className="text-right">
-                        <p className="font-display text-3xl text-ember">{item.price}</p>
-                      </div>
                     </div>
                   </article>
                 ))}
@@ -70,12 +88,23 @@ export default function MenuPage() {
             </section>
           ))}
         </div>
+        <div className="mt-16 rounded-[24px] border border-[color:var(--color-border)] bg-white/40 p-6 text-cream-muted">
+          {dictionary.pages.menu.notes.map((note) => (
+            <p key={note} className="text-sm leading-7">
+              {note}
+            </p>
+          ))}
+        </div>
         <div className="mt-16">
-          <Button href="/reserve" size="lg">
-            Reserve for Dinner
+          <Button href={localizeHref("/#contact", locale)} size="lg">
+            {dictionary.pages.menu.reserveCta}
           </Button>
         </div>
       </div>
     </div>
   );
+}
+
+export default function MenuPage() {
+  return <MenuPageContent locale={defaultLocale} />;
 }
