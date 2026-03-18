@@ -3,7 +3,7 @@ import Script from "next/script";
 import { Button } from "@/components/ui/Button";
 import { getDictionary, localizeHref, type Locale } from "@/lib/i18n";
 
-const heroPosterSrc = "/images/hero/interior-01.svg";
+const heroPosterSrc = "/images/food/close-up-pizza.jpg";
 
 const titleLetters = "OVENISTA".split("");
 
@@ -51,7 +51,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
 
       <div className="container-shell relative z-10 flex min-h-[calc(100dvh-56px)] flex-col items-center justify-center pb-12 pt-12 text-center">
         <div className="flex max-w-4xl flex-col items-center">
-          <p className="mb-5 text-[15px] font-semibold uppercase tracking-[0.4em] text-[#e6c164]">
+          <p className="mb-5 text-[20px] font-semibold uppercase tracking-[0.4em] text-[#e6c164]">
             {dictionary.hero.eyebrow}
           </p>
           <h1 className="flex flex-nowrap whitespace-nowrap font-display text-[clamp(58px,12vw,108px)] font-medium leading-[0.88] tracking-[0.03em] text-white drop-shadow-[0_18px_40px_rgba(0,0,0,0.38)]">

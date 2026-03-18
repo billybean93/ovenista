@@ -24,8 +24,8 @@ export function Footer() {
               height={80}
               className="h-auto w-[180px]"
             />
-            <div className="space-y-1 text-sm leading-7 text-[#6f5b46]">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8f744e]">
+            <div className="space-y-1 text-lg leading-7 text-[#6f5b46]">
+              <p className="text-[15px] font-semibold uppercase tracking-[0.22em] text-[#8f744e]">
                 {dictionary.footer.addressTitle}
               </p>
               <p>{restaurantContact.address}</p>
@@ -35,13 +35,11 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8f744e]">
-              {dictionary.footer.contactTitle}
-            </p>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8f744e]">
+    
+            <p className="text-[15px] font-semibold uppercase tracking-[0.22em] text-[#8f744e]">
               {dictionary.footer.socialTitle}
             </p>
-            <div className="space-y-3 text-sm leading-7 text-[#6f5b46]">
+            <div className="space-y-3 text-lg leading-7 text-[#6f5b46]">
               <a href={`tel:${restaurantContact.phone}`} className="block hover:text-[#d66a3f]">
                 {dictionary.common.hotline}: {restaurantContact.phone}
               </a>
@@ -58,7 +56,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8f744e]">
+            <p className="mb-4 text-[15px] font-semibold uppercase tracking-[0.22em] text-[#8f744e]">
               {dictionary.footer.findUs}
             </p>
             <div className="relative overflow-hidden border border-[rgba(74,58,44,0.18)] bg-[rgba(255,255,255,0.28)] shadow-[0_12px_32px_rgba(84,63,36,0.12)]">
