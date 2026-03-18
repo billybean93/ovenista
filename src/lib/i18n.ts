@@ -132,7 +132,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       tiktok: "TikTok",
     },
     hero: {
-      eyebrow: "European Craft Kitchen",
+      eyebrow: "Authentic European Cuisine",
       tagline: "From Oven With Soul",
       cta: "View Menu",
       pdfCta: "PDF Menu",
@@ -145,10 +145,13 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     story: {
       eyebrow: "Established 2026",
-      title: "We put a soul in every dish.",
+      title: "Ovenista – Culinary artistry from a handcrafted oven",
       paragraphs: [
-        "Ovenista is a new, intimate restaurant with an inventive spirit, inspired by the flavours and traditions of European cuisine. Every plate is made with care to deliver bold ideas and genuinely good food.",
-        "From rustic classics to modern interpretations, we focus on quality ingredients, thoughtful technique, and honest cooking that feels both fresh and familiar.",
+        "At Ovenista, we do not simply create dishes, we craft experiences. Inspired by the artistry of European cuisine, every expression begins with our handcrafted oven, the heart of the kitchen where technique, time, and passion come together.",
+        "Our journey has been built through years of working alongside European chefs, combining a disciplined foundation with a constant spirit of creativity. Every dish at Ovenista is not only about flavour, but about a distinct signature shaped with care by our team, always listening, evolving, and refining through each guest experience.",
+        "We value craftsmanship and the depth of cooking: from pizza dough fermented with a 16-hour biga, to beef brisket slow-cooked for 28 hours, to house-made Limoncello, carefully selected Italian wines, and characterful craft beers. Everything is chosen and executed with precision, finesse, and wholehearted care.",
+        "Ovenista is not simply a restaurant, but a destination for those who value quality, atmosphere, and feeling, where every meal becomes a memorable experience, whether it is a warm evening with family or an inspiring gathering.",
+        "Ovenista team",
       ],
     },
     gallery: {
@@ -242,7 +245,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       tiktok: "TikTok",
     },
     hero: {
-      eyebrow: "Bếp Âu Thủ Công",
+      eyebrow: "Ẩm thực Âu chuẩn vị",
       tagline: "Ra Lò Với Cả Tâm Hồn",
       cta: "Xem Menu",
       pdfCta: "Menu PDF",
@@ -255,10 +258,13 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     story: {
       eyebrow: "Thành lập năm 2026",
-      title: "Chúng tôi đặt tâm hồn vào từng món ăn.",
+      title: "Ovenista – Nghệ thuật ẩm thực từ chiếc lò thủ công",
       paragraphs: [
-        "Ovenista là một nhà hàng nhỏ mới mẻ với tinh thần sáng tạo, lấy cảm hứng từ hương vị và truyền thống ẩm thực châu Âu. Mỗi món ăn đều được chăm chút để mang đến ý tưởng táo bạo và trải nghiệm thật sự ngon miệng.",
-        "Từ những món mộc mạc kinh điển đến các cách diễn giải hiện đại, chúng tôi tập trung vào nguyên liệu chất lượng, kỹ thuật tinh tế và kiểu nấu nướng chân thành vừa mới lạ vừa gần gũi.",
+        "Tại Ovenista, chúng tôi không đơn thuần tạo ra món ăn – chúng tôi kiến tạo trải nghiệm. Lấy cảm hứng từ nghệ thuật ẩm thực châu Âu, mọi tinh hoa đều bắt đầu từ chiếc lò nướng thủ công – trái tim của không gian bếp, nơi hội tụ kỹ thuật, thời gian và đam mê.",
+        "Hành trình của chúng tôi được xây dựng từ nhiều năm làm việc cùng các đầu bếp châu Âu, kết hợp giữa nền tảng chuẩn mực và tinh thần sáng tạo không ngừng. Mỗi món ăn tại Ovenista không chỉ là hương vị, mà còn là dấu ấn riêng biệt được chăm chút tỉ mỉ bởi đội ngũ của chúng tôi – luôn lắng nghe, đổi mới và hoàn thiện qua từng trải nghiệm của thực khách.",
+        "Chúng tôi đề cao tính thủ công và chiều sâu của ẩm thực: từ những mẻ bột pizza ủ biga 16 giờ, những thớ beef brisket nướng chậm suốt 28 giờ, đến rượu Limoncello tự làm, rượu vang Ý tuyển chọn và bia thủ công đặc sắc. Tất cả được tuyển chọn và thực hiện với sự chuẩn xác, tinh tế và tận tâm cao nhất.",
+        "Ovenista không chỉ là một nhà hàng, mà là điểm đến dành cho những ai trân trọng chất lượng, không gian và cảm xúc – nơi mỗi bữa ăn trở thành một trải nghiệm đáng nhớ, dù là buổi tối ấm cúng bên gia đình hay một cuộc hẹn đầy cảm hứng.",
+        "Ovenista team",
       ],
     },
     gallery: {

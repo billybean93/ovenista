@@ -61,13 +61,20 @@ export function Footer() {
             <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8f744e]">
               {dictionary.footer.findUs}
             </p>
-            <div className="overflow-hidden border border-[rgba(74,58,44,0.18)] bg-[rgba(255,255,255,0.28)] shadow-[0_12px_32px_rgba(84,63,36,0.12)]">
+            <div className="relative overflow-hidden border border-[rgba(74,58,44,0.18)] bg-[rgba(255,255,255,0.28)] shadow-[0_12px_32px_rgba(84,63,36,0.12)]">
               <iframe
                 title={dictionary.footer.mapTitle}
                 src={`https://maps.google.com/maps?q=${mapQuery}&z=15&output=embed`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="h-[280px] w-full md:h-[360px]"
+              />
+              <a
+                href={restaurantContact.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="absolute inset-0"
+                aria-label={dictionary.footer.mapTitle}
               />
             </div>
           </div>

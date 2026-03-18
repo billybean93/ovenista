@@ -5,13 +5,16 @@ import { defaultLocale, locales, localizeHref, type Locale } from "@/lib/i18n";
 export const siteUrl = "https://ovenista.com";
 
 export const restaurantContact = {
-  phone: process.env.NEXT_PUBLIC_PHONE ?? "+84-XXX-XXX-XXXX",
-  address: process.env.NEXT_PUBLIC_ADDRESS ?? "[Street], Ho Chi Minh City, Vietnam",
-  email: process.env.NEXT_PUBLIC_EMAIL ?? "hello@ovenista.com",
-  instagram: process.env.NEXT_PUBLIC_INSTAGRAM ?? "https://instagram.com/ovenista",
-  facebook: process.env.NEXT_PUBLIC_FACEBOOK ?? "https://facebook.com/ovenista",
+  phone: process.env.NEXT_PUBLIC_PHONE ?? "+84 0392 404 247",
+  address: process.env.NEXT_PUBLIC_ADDRESS ?? "15 Nội Khu Hưng Gia 3, Phú Mỹ Hưng, Q7",
+  email: process.env.NEXT_PUBLIC_EMAIL ?? "ovenista.ltd@gmail.com",
+  instagram: process.env.NEXT_PUBLIC_INSTAGRAM ?? "https://www.instagram.com/ovenista.ltd/",
+  facebook: process.env.NEXT_PUBLIC_FACEBOOK ?? "https://www.facebook.com/profile.php?id=61558066711683",
   zalo: process.env.NEXT_PUBLIC_ZALO ?? "https://zalo.me/",
   tiktok: process.env.NEXT_PUBLIC_TIKTOK ?? "https://tiktok.com/@ovenista",
+  mapsUrl:
+    process.env.NEXT_PUBLIC_MAPS_URL ??
+    "https://www.google.com/maps/search/?api=1&query=Ovenista%2C%2015%20N%E1%BB%99i%20Khu%20H%C6%B0ng%20Gia%203%2C%20Ph%C3%BA%20M%E1%BB%B9%20H%C6%B0ng%2C%20Q7",
 };
 
 const metadataCopy: Record<

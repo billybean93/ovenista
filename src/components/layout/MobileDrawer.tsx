@@ -18,6 +18,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname) ?? defaultLocale;
   const labels = getDictionary(locale);
+  const mobileNavLinks = navLinks.filter((link) => link.key !== "location");
 
   useEffect(() => {
     onClose();
@@ -44,7 +45,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             </button>
           </div>
           <nav className="space-y-6">
-            {navLinks.map((link) => (
+            {mobileNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={localizeHref(link.href, locale)}
@@ -58,17 +59,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             </Link>
           </nav>
         </div>
-        <div className="mt-10 space-y-4 pb-6 text-base text-cream-muted">
-          <a href={restaurantContact.instagram} target="_blank" rel="noreferrer">
-            {labels.common.instagram}
-          </a>
-          <a href={restaurantContact.facebook} target="_blank" rel="noreferrer">
-            {labels.common.facebook}
-          </a>
-          <a href={restaurantContact.tiktok} target="_blank" rel="noreferrer">
-            {labels.common.tiktok}
-          </a>
-        </div>
+       
       </aside>
     </div>
   );

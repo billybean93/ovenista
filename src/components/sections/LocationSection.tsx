@@ -10,10 +10,19 @@ import { defaultLocale, getDictionary, getLocaleFromPathname } from "@/lib/i18n"
 import { restaurantContact } from "@/lib/metadata";
 import { getHours } from "@/lib/restaurant-data";
 
+const defaultEmbedUrl =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.0265694515406!2d106.7098223!3d10.732434099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f98669d07e1%3A0x9a53f8550da8cce4!2sOvenista!5e0!3m2!1sen!2s!4v1773828047902!5m2!1sen!2s";
+
 function getEmbedUrl() {
+  const embedUrl = process.env.NEXT_PUBLIC_MAPS_EMBED_URL;
+  if (embedUrl) return embedUrl;
+
   const embedId = process.env.NEXT_PUBLIC_MAPS_EMBED_ID;
-  if (!embedId || embedId === "YOUR_EMBED_ID_HERE") return null;
-  return `https://www.google.com/maps/embed?pb=${embedId}`;
+  if (embedId && embedId !== "YOUR_EMBED_ID_HERE") {
+    return `https://www.google.com/maps/embed?pb=${embedId}`;
+  }
+
+  return defaultEmbedUrl;
 }
 
 export default function LocationSection() {
@@ -95,7 +104,9 @@ export default function LocationSection() {
               </p>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="#location">{dictionary.common.getDirections}</Button>
+              <Button href={restaurantContact.mapsUrl} target="_blank" rel="noreferrer">
+                {dictionary.common.getDirections}
+              </Button>
               <Button href={`tel:${restaurantContact.phone}`} variant="outline">
                 {dictionary.common.callNow}
               </Button>
