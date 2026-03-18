@@ -17,6 +17,8 @@ type RawMenuItem = {
   price: number;
 };
 
+type LocaleOverride = Partial<Record<Locale, string>>;
+
 const categoryMeta: Record<
   CategoryId,
   {
@@ -150,6 +152,36 @@ const rawMenuItems: RawMenuItem[] = [
   { categoryId: "dessert", name: "CROISSANT", price: 35, description: null },
 ];
 
+const menuNameOverrides: Record<string, LocaleOverride> = {
+  MARGHERITA: { vi: "Margherita" },
+  CAPRICCIOSA: { vi: "Capricciosa" },
+  "PARMA BURRATA": { vi: "Parma Burrata" },
+  CARNI: { vi: "Carni" },
+  "4 CHEESE": { vi: "Pizza 4 Loại Phô Mai" },
+  "CARBONARA PIZZA": { vi: "Pizza Carbonara" },
+  "STRACCIATELLA PIZZA": { vi: "Pizza Stracciatella" },
+  NAPOLETANA: { vi: "Pizza Napoletana" },
+  "SEAFOOD PIZZA": { vi: "Pizza Hải Sản" },
+  "SALMON PIZZA": { vi: "Pizza Cá Hồi Xông Khói" },
+  "STEAK PIZZA": { vi: "Pizza Bò Bít Tết" },
+  "HAWAII PIZZA": { vi: "Pizza Hawaii" },
+};
+
+const menuDescriptionOverrides: Record<string, LocaleOverride> = {
+  MARGHERITA: { vi: "Sốt cà chua, mozzarella, parmesan, húng quế, dầu olive." },
+  CAPRICCIOSA: { vi: "Sốt cà chua, jambon chín, nấm mỡ, artichoke, olive đen, mozzarella." },
+  "PARMA BURRATA": { vi: "Sốt cà chua, rocket, thịt nguội parma, burrata." },
+  CARNI: { vi: "Sốt cà chua, salami Milano, jambon chín, xúc xích, gà, mozzarella." },
+  "4 CHEESE": { vi: "Kem sữa, mozzarella, parmesan, gorgonzola, provolone. Dùng kèm mật ong." },
+  "CARBONARA PIZZA": { vi: "Kem sữa, guanciale, sốt carbonara, mozzarella, parmesan." },
+  "STRACCIATELLA PIZZA": { vi: "Sốt cà chua, dầu olive extra virgin, húng quế, mozzarella, stracciatella, hạt điều." },
+  NAPOLETANA: { vi: "Sốt Napoletana, cá cơm muối, oregano, mozzarella, tỏi, ớt." },
+  "SEAFOOD PIZZA": { vi: "Sốt pesto, cá chẽm, tôm, mực, nghêu, mozzarella, húng quế, ớt flakes." },
+  "SALMON PIZZA": { vi: "Kem sữa, mozzarella, nấm mỡ, provolone, truffle, rocket, cá hồi xông khói, ricotta." },
+  "STEAK PIZZA": { vi: "Dầu olive, rocket, bò bít tết, hành tây, ớt flakes, parmesan." },
+  "HAWAII PIZZA": { vi: "Sốt cà chua, jambon chín, nấm mỡ, dứa, mozzarella." },
+};
+
 function extractDescriptions(description: string | null) {
   if (!description) {
     return { en: "", vi: "" };
@@ -175,6 +207,14 @@ function formatPrice(price: number) {
   return `${price.toLocaleString("vi-VN")}.000 VND`;
 }
 
+function getLocalizedName(name: string, locale: Locale) {
+  return menuNameOverrides[name]?.[locale] ?? name;
+}
+
+function getLocalizedDescription(name: string, locale: Locale, fallback: { en: string; vi: string }) {
+  return menuDescriptionOverrides[name]?.[locale] ?? fallback[locale];
+}
+
 export function getSpreadsheetMenuCategories(locale: Locale): MenuCategory[] {
   return categoryOrder.map((categoryId) => {
     const meta = categoryMeta[categoryId];
@@ -186,8 +226,8 @@ export function getSpreadsheetMenuCategories(locale: Locale): MenuCategory[] {
         return {
           image: meta.image,
           category: meta.label[locale],
-          name: item.name,
-          description: description[locale],
+          name: getLocalizedName(item.name, locale),
+          description: getLocalizedDescription(item.name, locale, description),
           href: "/#contact",
           price: formatPrice(item.price),
         };
