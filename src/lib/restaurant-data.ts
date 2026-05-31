@@ -40,28 +40,28 @@ const featuredDishesByLocale: Record<Locale, Dish[]> = {
       category: '',
       name: "Margherita",
       description: "Tomato sauce, mozzarella, parmesan, basil,  olive oil.",
-      href: "/menu#pizza",
+      href: "/menu#menu-page-2",
     },
     {
       image: "/images/food/bbq-chicken.jpg",
       category: "",
       name: "Grill Smoked Chicken",
       description: "Slow smoked chicken, glazed with honey - lemon mustard sauce",
-      href: "/menu#pasta",
+      href: "/menu#menu-page-7",
     },
     {
       image: "/images/food/brisket.webp",
       category: "",
       name: "Beef Brisket Gravy Sauce",
       description: "Beef brisket, gravy sauce, yellow mustard.",
-      href: "/menu#long-smoked",
+      href: "/menu#menu-page-7",
     },
     {
       image: "/images/food/seabass.jpg",
       category: "",
       name: "Sea Bass",
       description: "Pan-seared sea bass, Worcestershire sauce, spinach, garlic, chili.",
-      href: "/menu#desserts",
+      href: "/menu#menu-page-7",
     },
   ],
   vi: [
@@ -70,28 +70,28 @@ const featuredDishesByLocale: Record<Locale, Dish[]> = {
       category: "",
       name: "Margherita",
       description: "Đế bánh cháy cạnh nhẹ, bột ủ lâu và hương húng quế tươi bừng sáng.",
-      href: "/menu#pizza",
+      href: "/menu#menu-page-2",
     },
     {
       image: "/images/food/bbq-chicken.jpg",
       category: "",
       name: "Gà BBQ Hun Khói",
       description: "Gà xông khói nấu chậm, ăn với sốt chanh mật ong mù tạt",
-      href: "/menu#pasta",
+      href: "/menu#menu-page-7",
     },
     {
       image: "/images/food/brisket.webp",
       category: "",
       name: "Ức Bò sốt Gravy",
       description: "Ức bò nấu chậm 28 giờ, sốt tủy bò, mù tạt vàng.",
-      href: "/menu#long-smoked",
+      href: "/menu#menu-page-7",
     },
     {
       image: "/images/food/seabass.jpg",
       category: "",
       name: "Cá Chẽm áp chảo",
       description: "Cá chẽm áp chảo, sốt Worcestershire, ăn kèm cải bó xôi xào tỏi.",
-      href: "/menu#desserts",
+      href: "/menu#menu-page-7",
     },
   ],
 };
@@ -287,6 +287,25 @@ const hoursByLocale: Record<Locale, HoursEntry[]> = {
   en: [{ day: "Monday - Sunday", time: "11:00 AM - 10:00 PM" }],
   vi: [{ day: "Thứ Hai - Chủ Nhật", time: "11:00 - 22:00" }],
 };
+
+export const reservationTimes = [
+  "11:00",
+  "11:30",
+  "12:00",
+  "12:30",
+  "13:00",
+  "13:30",
+  "17:30",
+  "18:00",
+  "18:30",
+  "19:00",
+  "19:30",
+  "20:00",
+  "20:30",
+  "21:00",
+] as const;
+
+export const partySizes = ["1 Person", "2 People", "3 People", "4 People", "5 People", "6 People", "7+ People"] as const;
 
 const menuCategoriesByLocale: Record<Locale, MenuCategory[]> = {
   en: getSpreadsheetMenuCategories("en"),
